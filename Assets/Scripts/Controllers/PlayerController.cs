@@ -56,7 +56,13 @@ public class PlayerController : BaseController
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
         }
 
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+        }
     }
+
     private float time = 0.0f;
     protected override void UpdateIdle()
     {
@@ -69,8 +75,15 @@ public class PlayerController : BaseController
                 _stat.Hp += 5;
             time = 0.0f;
         }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+        }
     }
 
+    
     protected override void UpdateSkill()
     {
         if(_lockTarget != null)
@@ -79,6 +92,17 @@ public class PlayerController : BaseController
             Quaternion quat = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
         }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+        }
+    }
+
+    protected override void UpdateDie()
+    {
+
     }
 
     void OnHitEvent()
@@ -115,9 +139,17 @@ public class PlayerController : BaseController
                         _stopSkill = true;
                 }
                 break;
+            case Define.State.Die:
+                {
+                    //죽고 부활했을 때를 위한 상태 초기화
+                    State = Define.State.Idle;
+                }
+                break;
         }
     }
 
+    //전에 선택한 대상을 위한 변수
+    private GameObject preTarget;
     void OnMouseEvent_IdleRun(Define.MouseEvent evt)
     {
         RaycastHit hit;
@@ -146,6 +178,19 @@ public class PlayerController : BaseController
                 {
                     if (_lockTarget == null && raycastHit)
                         _destPos = hit.point;
+
+                    //선택한 대상을 표시
+                    if (preTarget != null)
+                    {
+                        //전에 선택한 대상의 표시마크를 숨김
+                        preTarget.GetComponent<MonsterController>().HideSelection();
+                    }
+                    if (_lockTarget != null)
+                    {
+                        //지금 선택한 대상의 표시마크를 보여줌
+                        _lockTarget.GetComponent<MonsterController>().ShowSelection();
+                    }
+                    preTarget = _lockTarget;
                 }
                 break;
             case Define.MouseEvent.PointerUp:

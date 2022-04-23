@@ -53,6 +53,12 @@ public class Stat : MonoBehaviour
             playerStat.Exp += 5;
         }        
         
+        //죽고나서 죽음 애니메이션이 재생되는 동안 지연
+        Invoke("Despawn", 2.0f);
+    }
+
+    private void Despawn()
+    {
         Managers.Game.Despawn(gameObject);
     }
 }

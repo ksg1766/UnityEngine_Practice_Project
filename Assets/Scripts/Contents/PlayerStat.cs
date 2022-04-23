@@ -43,6 +43,9 @@ public class PlayerStat : Stat
         _gold = 0;
 
         SetStat(_level);
+
+        Managers.Input.MouseAction -= OnMouseEvent;
+        Managers.Input.MouseAction += OnMouseEvent;
     }
 
     public void SetStat(int level)
@@ -55,10 +58,28 @@ public class PlayerStat : Stat
         _defense = stat.defense;
     }
 
+    private bool isDead = false;
     protected override void OnDead(Stat attacker)
     {
         Debug.Log("Player Dead");
-        Invoke("ReSpawn", 1.0f); ;
+
+        //GameOver 문구를 화면에 보여줌
+        UI_GameOver.instance.ShowGameOver();
+
+        isDead = true;
+    }
+
+    void OnMouseEvent(Define.MouseEvent evt)
+    {
+        if(isDead && evt == Define.MouseEvent.Press)
+        {
+            //GameOver 문구를 화면에서 숨김
+            UI_GameOver.instance.HideGameOver();
+
+            ReSpawn();
+
+            isDead = false;
+        }
     }
 
     private void ReSpawn()

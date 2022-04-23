@@ -18,7 +18,8 @@ public class Define
         Idle,
         Skill,
     }
-public enum Layer
+
+    public enum Layer
     {
         Monster = 8,
         Ground = 9,
@@ -45,6 +46,7 @@ public enum Layer
         Click,
         Drag,
     }
+
     public enum MouseEvent
     {
         Press,
@@ -53,6 +55,7 @@ public enum Layer
         Click,
         //Wheel,
     }
+
     public enum CameraMode
     {
         QuarterView,

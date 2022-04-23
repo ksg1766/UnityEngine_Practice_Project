@@ -13,6 +13,10 @@ public class MonsterController : BaseController
     [SerializeField]
     float _attackRange = 2;
 
+    //표시마크 오브젝트
+    [SerializeField]
+    GameObject selectMark;
+
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Monster;
@@ -20,6 +24,23 @@ public class MonsterController : BaseController
 
         if(gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+
+        //생성되었을 때 상태 초기화
+        State = Define.State.Idle;
+
+        //표시마크를 숨김
+        HideSelection();
+    }
+
+    //표시마크를 숨김
+    public void HideSelection()
+    {
+        selectMark.SetActive(false);
+    }
+    //표시마크를 보여줌
+    public void ShowSelection()
+    {
+        selectMark.SetActive(true);
     }
 
     protected override void UpdateIdle()
@@ -34,6 +55,12 @@ public class MonsterController : BaseController
             _lockTarget = player;
             State = Define.State.Moving;
             return;
+        }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
         }
     }
 
@@ -57,7 +84,6 @@ public class MonsterController : BaseController
         {
             State = Define.State.Idle;
         }
-
         else
         {
             NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
@@ -65,6 +91,12 @@ public class MonsterController : BaseController
             nma.speed = _stat.MoveSpeed;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
+        }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
         }
     }
 
@@ -75,6 +107,18 @@ public class MonsterController : BaseController
             Vector3 dir = _lockTarget.transform.position - transform.position;
             Quaternion quat = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
+        }
+
+        //플레이어가 죽었을 때 공격을 멈춤
+        if(_lockTarget.GetComponent<PlayerController>().State == Define.State.Die)
+        {
+            State = Define.State.Idle;
+        }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
         }
     }
 

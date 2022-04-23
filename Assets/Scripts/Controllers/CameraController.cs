@@ -8,20 +8,16 @@ public class CameraController : MonoBehaviour
     Define.CameraMode _mode = Define.CameraMode.QuarterView;
     
     [SerializeField]
-    Vector3 _delta = new Vector3(0.0f, 6.0f, -5.0f);
+    Vector3 _cameraDirection = new Vector3(0.0f, 9.0f, -7.5f);
     
     [SerializeField] 
     GameObject _player = null;
-    /*
-    [SerializeField]
-    float _zoomSpeed = 0f;
 
-    [SerializeField]
-    float _zoomMax = 3.0f;
+    private Vector3 _delta;
+    private Vector3 cameraPos;
+    private float zoomSpeed = 0.05f;
+    private int zoomSwitch = 0;
 
-    [SerializeField]
-    float _zoomMin = -2.0f;
-    */
     public struct St_ObstacleRendererInfo
     {
         public int InstanceId;
@@ -42,6 +38,8 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        _delta = transform.position - _player.transform.position;   //_delta 초기값 지정
+
         TransparentRayLayer = 1 << LayerMask.NameToLayer("Block");
         TransparentShader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
     }
@@ -66,8 +64,9 @@ public class CameraController : MonoBehaviour
                 Lst_TransparentedRenderer.Clear();
             }
 
-            transform.position = _player.transform.position + _delta;
-            transform.LookAt(_player.transform);
+            transform.position = _player.transform.position + _delta;   //플레이어 위치에 프레임마다 CameraZoom함수에서 갱신되는 _delta값을 더함.
+                                                                        //이렇게 해야 줌 이동을 할 때 _delta값에 따라 부드럽게 카메라가 움직임. 이해 안가면 +_delta빼고 실행해 보자.
+            transform.LookAt(_player.transform.position + Vector3.up);  //카메라 위치가 변하더라도 보는 위치는 고정
 
             float Distance = _delta.magnitude;
 
@@ -75,8 +74,6 @@ public class CameraController : MonoBehaviour
 
             HitRayTransparentObject(_player.transform.position, DirToCam, Distance);    //플레이어 몸에서 카메라 방향으로 걸리는 장애물 반투명화
         }
-
-        //CameraZoom();
     }
 
     void HitRayTransparentObject(Vector3 start, Vector3 direction, float distance)
@@ -106,21 +103,35 @@ public class CameraController : MonoBehaviour
 
             Lst_TransparentedRenderer.Add(Dic_SavedObstaclesRendererInfo[instanceid]);
         }
+
+        CameraZoom();
     }
-    /*
+
     void CameraZoom()
     {
-        float zoomDirection = Input.GetAxis("Mouse ScrollWheel");
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0)
+            zoomSwitch = 1;
 
-        if (transform.position.y <= _zoomMax && zoomDirection > 0)
-            return;
+        else if (scroll < 0)
+            zoomSwitch = -1;
 
-        if (transform.position.y >= _zoomMin && zoomDirection < 0)
-            return;
+        if (zoomSwitch > 0)  //줌 인
+        {
+            cameraPos = _player.transform.position + Vector3.up + 2 * Vector3.back;
+            transform.position = Vector3.Lerp(transform.position, cameraPos, zoomSpeed);
 
-        transform.position += transform.forward * zoomDirection * _zoomSpeed;
+            _delta = transform.position - _player.transform.position;   //카메라와 플레이어 사이 거리 갱신
+        }
+
+        else if (zoomSwitch < 0) //줌 아웃
+        {
+            transform.position = Vector3.Lerp(transform.position, _player.transform.position + _cameraDirection, zoomSpeed);
+
+            _delta = transform.position - _player.transform.position;
+        }
     }
-    */
+    
     public void SetQaurterView(Vector3 delta)
     {
         _mode = Define.CameraMode.QuarterView;

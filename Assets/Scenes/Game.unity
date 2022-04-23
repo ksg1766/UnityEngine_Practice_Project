@@ -4303,11 +4303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6645439622034662922, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6645439622034662922, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 6645439622034662922, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4336,10 +4336,6 @@ PrefabInstance:
     - target: {fileID: 6645439622034662922, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645439622034662923, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
-      propertyPath: _player
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6645439622034662923, guid: 904931c694e1f7b45bf1bbecb992a8b9, type: 3}
       propertyPath: _delta.y

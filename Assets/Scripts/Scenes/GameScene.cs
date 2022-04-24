@@ -18,7 +18,7 @@ public class GameScene : BaseScene
 
         gameObject.GetOrAddComponent<CursorController>();
 
-        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "UnityChan");
+        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "PlayerCharacter(temp)");//, GameObject.Find("PlayerCharacter").transform);// GameObject.Find("PlayerCharacter").transform
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
 
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");

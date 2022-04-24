@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 _delta;
     private Vector3 cameraPos;
-    private float zoomSpeed = 0.05f;
+    private float zoomSpeed = 0.1f;
     private int zoomSwitch = 0;
 
     public struct St_ObstacleRendererInfo

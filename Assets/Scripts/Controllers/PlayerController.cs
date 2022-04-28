@@ -27,7 +27,7 @@ public class PlayerController : BaseController
         {
             _destPos = _lockTarget.transform.position;
             float distance = (_destPos - transform.position).magnitude;
-            if(distance <= 1)
+            if(distance <= 1.5f)
             {
                 State = Define.State.Skill;
                 return;
@@ -113,6 +113,9 @@ public class PlayerController : BaseController
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
             targetStat.OnAttacked(_stat);
+
+            //공격 시 효과 재생
+            _lockTarget.GetComponent<MonsterController>().ShowHitEffect();
         }
 
         if (_stopSkill)

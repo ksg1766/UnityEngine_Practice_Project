@@ -17,6 +17,10 @@ public class MonsterController : BaseController
     [SerializeField]
     GameObject selectMark;
 
+    //ÇÇ°ÝÈ¿°ú
+    [SerializeField]
+    ParticleSystem hitEffect;
+
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Monster;
@@ -30,6 +34,9 @@ public class MonsterController : BaseController
 
         //Ç¥½Ã¸¶Å©¸¦ ¼û±è
         HideSelection();
+
+        //ÇÇ°ÝÈ¿°ú ¸ØÃã
+        hitEffect.Stop();
     }
 
     //Ç¥½Ã¸¶Å©¸¦ ¼û±è
@@ -43,10 +50,16 @@ public class MonsterController : BaseController
         selectMark.SetActive(true);
     }
 
+    //ÇÇ°ÝÈ¿°ú Àç»ý
+    public void ShowHitEffect()
+    {
+        hitEffect.Play();
+    }
+
     protected override void UpdateIdle()
     {
         GameObject player = Managers.Game.GetPlayer();
-        if (player == null)
+        if (player == null || player.GetComponent<PlayerController>().State == Define.State.Die)
             return;
 
         float distance = (player.transform.position - transform.position).magnitude;

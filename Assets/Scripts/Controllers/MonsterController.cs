@@ -61,6 +61,7 @@ public class MonsterController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 
@@ -97,6 +98,7 @@ public class MonsterController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 
@@ -119,6 +121,7 @@ public class MonsterController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 

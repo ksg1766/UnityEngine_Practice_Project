@@ -43,7 +43,7 @@ public class PlayerController : BaseController
         }
         else
         {
-            Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
+            //Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, 1.0f, LayerMask.GetMask("Block")))
             {
                 if(Input.GetMouseButton(0) == false)
@@ -60,6 +60,7 @@ public class PlayerController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 
@@ -80,10 +81,10 @@ public class PlayerController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 
-    
     protected override void UpdateSkill()
     {
         if(_lockTarget != null)
@@ -97,6 +98,7 @@ public class PlayerController : BaseController
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
+            return;
         }
     }
 
@@ -136,7 +138,7 @@ public class PlayerController : BaseController
             case Define.State.Skill:
                 {
                     if(evt == Define.MouseEvent.PointerUp)
-                        _stopSkill = true;
+                        _stopSkill = true;         
                 }
                 break;
             case Define.State.Die:

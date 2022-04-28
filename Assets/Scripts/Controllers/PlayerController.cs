@@ -56,7 +56,7 @@ public class PlayerController : BaseController
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
         }
 
-        //Á×¾úÀ» ¶§ »óÅÂ º¯°æ
+        //ì£½ì—ˆì„ ë•Œ ìƒíƒœ ë³€ê²½
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
@@ -76,7 +76,7 @@ public class PlayerController : BaseController
             time = 0.0f;
         }
 
-        //Á×¾úÀ» ¶§ »óÅÂ º¯°æ
+        //ì£½ì—ˆì„ ë•Œ ìƒíƒœ ë³€ê²½
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
@@ -93,7 +93,7 @@ public class PlayerController : BaseController
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
         }
 
-        //Á×¾úÀ» ¶§ »óÅÂ º¯°æ
+        //ì£½ì—ˆì„ ë•Œ ìƒíƒœ ë³€ê²½
         if (_stat.Hp <= 0)
         {
             State = Define.State.Die;
@@ -141,14 +141,14 @@ public class PlayerController : BaseController
                 break;
             case Define.State.Die:
                 {
-                    //Á×°í ºÎÈ°ÇßÀ» ¶§¸¦ À§ÇÑ »óÅÂ ÃÊ±âÈ­
+                    //ì£½ê³  ë¶€í™œí–ˆì„ ë•Œë¥¼ ìœ„í•œ ìƒíƒœ ì´ˆê¸°í™”
                     State = Define.State.Idle;
                 }
                 break;
         }
     }
 
-    //Àü¿¡ ¼±ÅÃÇÑ ´ë»óÀ» À§ÇÑ º¯¼ö
+    //ì „ì— ì„ íƒí•œ ëŒ€ìƒì„ ìœ„í•œ ë³€ìˆ˜
     private GameObject preTarget;
     void OnMouseEvent_IdleRun(Define.MouseEvent evt)
     {
@@ -179,15 +179,15 @@ public class PlayerController : BaseController
                     if (_lockTarget == null && raycastHit)
                         _destPos = hit.point;
 
-                    //¼±ÅÃÇÑ ´ë»óÀ» Ç¥½Ã
+                    //ì„ íƒí•œ ëŒ€ìƒì„ í‘œì‹œ
                     if (preTarget != null)
                     {
-                        //Àü¿¡ ¼±ÅÃÇÑ ´ë»óÀÇ Ç¥½Ã¸¶Å©¸¦ ¼û±è
+                        //ì „ì— ì„ íƒí•œ ëŒ€ìƒì˜ í‘œì‹œë§ˆí¬ë¥¼ ìˆ¨ê¹€
                         preTarget.GetComponent<MonsterController>().HideSelection();
                     }
                     if (_lockTarget != null)
                     {
-                        //Áö±İ ¼±ÅÃÇÑ ´ë»óÀÇ Ç¥½Ã¸¶Å©¸¦ º¸¿©ÁÜ
+                        //ì§€ê¸ˆ ì„ íƒí•œ ëŒ€ìƒì˜ í‘œì‹œë§ˆí¬ë¥¼ ë³´ì—¬ì¤Œ
                         _lockTarget.GetComponent<MonsterController>().ShowSelection();
                     }
                     preTarget = _lockTarget;

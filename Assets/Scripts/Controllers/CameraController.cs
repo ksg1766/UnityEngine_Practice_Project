@@ -38,10 +38,12 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        //initialize the camera position to zoom out
+        transform.position = _player.transform.position + _cameraDirection;
         _delta = transform.position - _player.transform.position;   //_delta 초기값 지정
 
         TransparentRayLayer = 1 << LayerMask.NameToLayer("Block");
-        TransparentShader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
+        TransparentShader = Shader.Find("Legacy Shaders/Transparent/Diffuse");      
     }
 
     void LateUpdate()
@@ -74,6 +76,8 @@ public class CameraController : MonoBehaviour
 
             HitRayTransparentObject(_player.transform.position, DirToCam, Distance);    //플레이어 몸에서 카메라 방향으로 걸리는 장애물 반투명화
         }
+
+        CameraZoom();
     }
 
     void HitRayTransparentObject(Vector3 start, Vector3 direction, float distance)
@@ -103,8 +107,6 @@ public class CameraController : MonoBehaviour
 
             Lst_TransparentedRenderer.Add(Dic_SavedObstaclesRendererInfo[instanceid]);
         }
-
-        CameraZoom();
     }
 
     void CameraZoom()

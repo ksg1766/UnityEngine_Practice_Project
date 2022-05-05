@@ -8,10 +8,10 @@ public class MonsterController : BaseController
     Stat _stat;
 
     [SerializeField]
-    float _scanRange = 8;
+    float _scanRange = 10.0f;
 
     [SerializeField]
-    float _attackRange = 2;
+    float _attackRange = 1.5f;
 
     //표시마크 오브젝트
     [SerializeField]
@@ -26,7 +26,7 @@ public class MonsterController : BaseController
         WorldObjectType = Define.WorldObject.Monster;
         _stat = gameObject.GetComponent<Stat>();
 
-        if(gameObject.GetComponentInChildren<UI_HPBar>() == null)
+        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
 
         //생성되었을 때 상태 초기화
@@ -124,8 +124,23 @@ public class MonsterController : BaseController
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
         }
 
+        if(name == "Spider")
+        {
+            _destPos = _lockTarget.transform.position;
+            float distance = (_destPos - transform.position).magnitude;
+            if (distance > _attackRange)
+            {
+                State = Define.State.Moving;
+                return;
+            }
+            else
+            {
+                State = Define.State.Skill;
+            }
+        }
+
         //플레이어가 죽었을 때 공격을 멈춤
-        if(_lockTarget.GetComponent<PlayerController>().State == Define.State.Die)
+        if (_lockTarget.GetComponent<PlayerController>().State == Define.State.Die)
         {
             State = Define.State.Idle;
         }
@@ -138,7 +153,7 @@ public class MonsterController : BaseController
         }
     }
 
-    void OnHitEvent()
+    public void OnHitEvent()
     {
         if (_lockTarget != null)
         {

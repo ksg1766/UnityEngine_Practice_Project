@@ -22,21 +22,45 @@ public abstract class BaseController : MonoBehaviour
         {
             _state = value;
 
-            Animator anim = GetComponent<Animator>();
-            switch (_state)
+            if (name == "Spider")
             {
-                case Define.State.Die:
-                    anim.CrossFade("DIE", 0.1f);
-                    break;
-                case Define.State.Idle:
-                    anim.CrossFade("WAIT", 0.1f);
-                    break;
-                case Define.State.Moving:
-                    anim.CrossFade("RUN", 0.1f);
-                    break;
-                case Define.State.Skill:
-                    anim.CrossFade("ATTACK", 0.1f, -1, 0);
-                    break;
+                Animation anim = GetComponentInChildren<Animation>();
+
+                switch (_state)
+                {
+                    case Define.State.Die:
+                        anim.CrossFade("death1", 0.1f);
+                        break;
+                    case Define.State.Idle:
+                        anim.CrossFade("idle", 0.1f);
+                        break;
+                    case Define.State.Moving:
+                        anim.CrossFade("run", 0.1f);
+                        break;
+                    case Define.State.Skill:
+                        anim.CrossFade("attack2_new", 0.1f);
+                        break;
+                }
+            }
+            else
+            {
+                Animator anim = GetComponent<Animator>();
+
+                switch (_state)
+                {
+                    case Define.State.Die:
+                        anim.CrossFade("DIE", 0.1f);
+                        break;
+                    case Define.State.Idle:
+                        anim.CrossFade("WAIT", 0.1f);
+                        break;
+                    case Define.State.Moving:
+                        anim.CrossFade("RUN", 0.1f);
+                        break;
+                    case Define.State.Skill:
+                        anim.CrossFade("ATTACK", 0.1f, -1, 0);
+                        break;
+                }
             }
         }
     }

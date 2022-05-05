@@ -32,15 +32,40 @@ public class SpawningPool : MonoBehaviour
     {
         while (_reserveCount + _monsterCount < _keepMonsterCount)
         {
-            StartCoroutine("ReserveSpawn");
+            StartCoroutine("ReserveSpawn_Knight");
+            StartCoroutine("ReserveSpawn_Spider");
         }
     }
 
-    IEnumerator ReserveSpawn()
+    IEnumerator ReserveSpawn_Knight()
     {
         _reserveCount++;
         yield return new WaitForSeconds(Random.Range(5.0f, _spawnTime));
         GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
+        NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
+
+        Vector3 randPos;
+        while (true)
+        {
+            Vector3 randDir = Random.insideUnitSphere * Random.Range(0, _spawnRadius);
+            randDir.y = 0;
+            _spawnPos.Set(0, 0, -15);
+            randPos = _spawnPos + randDir;
+
+            NavMeshPath path = new NavMeshPath();
+            if (nma.CalculatePath(randPos, path))
+                break;
+        }
+
+        obj.transform.position = randPos;
+        _reserveCount--;
+    }
+
+    IEnumerator ReserveSpawn_Spider()
+    {
+        _reserveCount++;
+        yield return new WaitForSeconds(Random.Range(5.0f, _spawnTime));
+        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Spider");
         NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
 
         Vector3 randPos;

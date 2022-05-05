@@ -24,7 +24,7 @@ public class GameScene : BaseScene
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
         GameObject go = new GameObject { name = "SpawningPool" };
         SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
-        pool.SetKeepMonsterCount(5);
+        pool.SetKeepMonsterCount(2);
     }
 
     public override void Clear()

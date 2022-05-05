@@ -18,18 +18,18 @@ public class PlayerGravity : MonoBehaviour
         if(Physics.SphereCast(transform.position + new Vector3(0, 0.9f, 0), 0.3f, Vector3.down, out RaycastHit hit, float.MaxValue, layerMask))
         {
             //지면이 고르지 못할 때 떨림을 막기위해 간격을 넓게 함
-            if (hit.distance > 0.7f)
+            if (hit.distance > 0.75f)
             {
-                transform.Translate(new Vector3(0, -9.8f, 0) * Time.deltaTime);
+                transform.Translate(new Vector3(0, -4.9f, 0) * Time.deltaTime);
             }
-            else if (hit.distance < 0.5f)
+            else if (hit.distance < 0.45f)
             {
-                transform.Translate(new Vector3(0, 9.8f, 0) * Time.deltaTime);
+                transform.Translate(new Vector3(0, 4.9f, 0) * Time.deltaTime);
             }
         }
         else
         {
-            transform.Translate(new Vector3(0, -9.8f, 0) * Time.deltaTime);
+            transform.Translate(new Vector3(0, -4.9f, 0) * Time.deltaTime);
         }
     }
 }

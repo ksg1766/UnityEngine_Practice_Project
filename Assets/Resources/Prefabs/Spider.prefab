@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2078376400810840930}
   - component: {fileID: 3096820930565497088}
   - component: {fileID: 2200894443495622837}
-  - component: {fileID: -7907655951336794833}
+  - component: {fileID: 2106142342574910796}
   m_Layer: 8
   m_Name: Spider
   m_TagString: Monster
@@ -106,7 +106,7 @@ MonoBehaviour:
   _attack: 0
   _defense: 0
   _moveSpeed: 0
---- !u!114 &-7907655951336794833
+--- !u!114 &2106142342574910796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2200894443495622836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3491b8b3dedb13448583473656a2ff2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c58835932791fe47bd316e55f2e2fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3925308774051804978

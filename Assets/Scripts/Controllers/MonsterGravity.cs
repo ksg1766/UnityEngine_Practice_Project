@@ -17,7 +17,7 @@ public class MonsterGravity : MonoBehaviour
     {
         layerMask = 1 << LayerMask.NameToLayer("Ground");
 
-        height = new Vector3(0, 0.55f, 0);
+        height = new Vector3(0, 1.05f, 0);
 
         hit = new RaycastHit[5];
     }
@@ -59,11 +59,11 @@ public class MonsterGravity : MonoBehaviour
             float distance = (hit[0].distance + hit[1].distance + hit[2].distance + hit[3].distance + hit[4].distance) / 5.0f;
 
             //지면이 고르지 못할 때 떨림을 막기위해 간격을 넓게 함 / 중력 세기 감소
-            if (distance > 0.6f)
+            if (distance > 1.1f)
             {
                 transform.Translate(new Vector3(0, -4.9f, 0) * Time.deltaTime);
             }
-            else if (distance < 0.5f)
+            else if (distance < 1.0f)
             {
                 transform.Translate(new Vector3(0, 4.9f, 0) * Time.deltaTime);
             }

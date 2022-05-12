@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2200894443495622832}
   - component: {fileID: 2200894443495622839}
-  - component: {fileID: 5793126349403728870}
   - component: {fileID: 2200894443495622838}
   - component: {fileID: 2200894443495622837}
   - component: {fileID: 2200894443495622833}
+  - component: {fileID: 5793126349403728870}
   - component: {fileID: 8681238018582421557}
   m_Layer: 8
   m_Name: Knight
@@ -68,22 +68,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &5793126349403728870
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2200894443495622836}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 2
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &2200894443495622838
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -135,6 +119,22 @@ MonoBehaviour:
   _attackRange: 1.5
   selectMark: {fileID: 7377050019139496576}
   hitEffect: {fileID: 3088520294684927560}
+--- !u!54 &5793126349403728870
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200894443495622836}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &8681238018582421557
 MonoBehaviour:
   m_ObjectHideFlags: 0

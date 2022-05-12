@@ -23,7 +23,7 @@ public class MonsterGravity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Physics.Raycast(transform.position + height, Vector3.down, out hit[0], float.MaxValue, layerMask))
         {

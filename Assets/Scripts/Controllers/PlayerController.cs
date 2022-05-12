@@ -10,6 +10,8 @@ public class PlayerController : BaseController
     PlayerStat _stat;
     bool _stopSkill = false;
 
+    private float _attackRange = 2.0f;
+
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
@@ -27,7 +29,7 @@ public class PlayerController : BaseController
         {
             _destPos = _lockTarget.transform.position;
             float distance = (_destPos - transform.position).magnitude;
-            if(distance <= 1.5f)
+            if(distance <= _attackRange)
             {
                 State = Define.State.Skill;
                 return;
@@ -112,10 +114,22 @@ public class PlayerController : BaseController
         if(_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            targetStat.OnAttacked(_stat);
 
-            //공격 시 효과 재생
-            _lockTarget.GetComponent<MonsterController>().ShowHitEffect();
+            if (targetStat.Hp > 0)
+            {
+                float distance = (_lockTarget.transform.position - transform.position).magnitude;
+                if (distance <= _attackRange)
+                {
+                    targetStat.OnAttacked(_stat);
+
+                    //공격 시 효과 재생
+                    _lockTarget.GetComponent<MonsterController>().ShowHitEffect();
+                }
+            }
+            else
+            {
+                _stopSkill = true;
+            }
         }
 
         if (_stopSkill)

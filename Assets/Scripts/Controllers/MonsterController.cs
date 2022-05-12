@@ -11,7 +11,7 @@ public class MonsterController : BaseController
     float _scanRange = 10.0f;
 
     [SerializeField]
-    float _attackRange = 1.5f;
+    float _attackRange = 2.0f;
 
     //표시마크 오브젝트
     [SerializeField]
@@ -124,14 +124,14 @@ public class MonsterController : BaseController
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
         }
 
-        if(name == "Spider")
+        //스파이더는 이상하게 공격을 한번만 해서 넣음
+        if (name == "Spider")
         {
             _destPos = _lockTarget.transform.position;
             float distance = (_destPos - transform.position).magnitude;
             if (distance > _attackRange)
             {
                 State = Define.State.Moving;
-                return;
             }
             else
             {
@@ -143,6 +143,7 @@ public class MonsterController : BaseController
         if (_lockTarget.GetComponent<PlayerController>().State == Define.State.Die)
         {
             State = Define.State.Idle;
+            return;
         }
 
         //죽었을 때 상태 변경
@@ -158,15 +159,20 @@ public class MonsterController : BaseController
         if (_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            targetStat.OnAttacked(_stat);
 
             if (targetStat.Hp > 0)
             {
                 float distance = (_lockTarget.transform.position - transform.position).magnitude;
                 if (distance <= _attackRange)
+                {
+                    targetStat.OnAttacked(_stat);
+
                     State = Define.State.Skill;
+                }
                 else
+                {
                     State = Define.State.Moving;
+                }
             }
             else
             {

@@ -67,8 +67,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 0.6, z: 1.6}
-  m_Center: {x: 0, y: 0.3, z: -0.2}
+  m_Size: {x: 1.6, y: 0.7, z: 1.6}
+  m_Center: {x: 0, y: 0.35, z: -0.2}
 --- !u!114 &3096820930565497088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   _state: 2
   _lockTarget: {fileID: 0}
   _scanRange: 10
-  _attackRange: 1.5
+  _attackRange: 2
   selectMark: {fileID: 7377050019139496576}
   hitEffect: {fileID: 3088520294684927560}
 --- !u!114 &2200894443495622837
@@ -142,7 +142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3925308774051804978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -166,6 +166,7 @@ public class MonsterController : BaseController
                 if (distance <= _attackRange)
                 {
                     targetStat.OnAttacked(_stat);
+                    Managers.Sound.Play("EnemyHit");
 
                     State = Define.State.Skill;
                 }

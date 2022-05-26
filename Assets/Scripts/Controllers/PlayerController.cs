@@ -70,14 +70,14 @@ public class PlayerController : BaseController
     protected override void UpdateIdle()
     {
         time += Time.deltaTime;
-        if(time >= 5.0f)
-        {
-            if (_stat.Hp + 5 > _stat.MaxHp)
-                _stat.Hp = _stat.MaxHp;
-            else
-                _stat.Hp += 5;
-            time = 0.0f;
-        }
+        //if(time >= 5.0f)
+        //{
+        //    if (_stat.Hp + 5 > _stat.MaxHp)
+        //        _stat.Hp = _stat.MaxHp;
+        //    else
+        //        _stat.Hp += 5;
+        //    time = 0.0f;
+        //}
 
         //죽었을 때 상태 변경
         if (_stat.Hp <= 0)
@@ -124,6 +124,7 @@ public class PlayerController : BaseController
 
                     //공격 시 효과 재생
                     _lockTarget.GetComponent<MonsterController>().ShowHitEffect();
+                    Managers.Sound.Play("PlayerHit");
                 }
             }
             else

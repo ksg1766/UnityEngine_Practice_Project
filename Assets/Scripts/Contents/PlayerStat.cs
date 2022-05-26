@@ -30,6 +30,8 @@ public class PlayerStat : Stat
                 Debug.Log("Level Up!");
                 Level = level;
                 SetStat(Level);
+
+                Managers.Sound.Play("LevelUp");
             }
         }
     }
@@ -46,6 +48,8 @@ public class PlayerStat : Stat
 
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
+
+        UI_GameOver.instance.HideGameOver();
     }
 
     public void SetStat(int level)

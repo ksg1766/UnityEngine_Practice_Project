@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class UI_Button : UI_Popup
 {
-    enum Buttons
+    protected enum Buttons
     {
-        PointButton
+        PointButton,
     }
 
     enum Texts

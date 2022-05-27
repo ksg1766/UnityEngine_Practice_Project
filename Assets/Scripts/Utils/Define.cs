@@ -32,6 +32,7 @@ public class Define
         Login,
         Lobby,
         Game,
+        TestScene
     }
 
     public enum Sound
@@ -54,6 +55,11 @@ public class Define
         PointerUp,
         Click,
         //Wheel,
+    }
+
+    public enum KeyboardEvent
+    {
+        Key_I
     }
 
     public enum CameraMode

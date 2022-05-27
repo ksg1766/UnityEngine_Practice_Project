@@ -8,6 +8,10 @@ public class PlayerStat : Stat
     protected int _exp;
     [SerializeField]
     protected int _gold;
+    //[SerializeField]
+    public float _totalExp;
+
+    public float TotalExp { get { return _totalExp; } set { _totalExp = value; } }
 
     public int Exp {
         get { return _exp; }
@@ -16,18 +20,26 @@ public class PlayerStat : Stat
             _exp = value;
 
             int level = Level;
+
+            Data.Stat stat;
+            Managers.Data.StatDict.TryGetValue(level + 1, out stat);
+            TotalExp = stat.totalExp;
+
             while (true)
             {
-                Data.Stat stat;
+                //Data.Stat stat;
                 if (Managers.Data.StatDict.TryGetValue(level + 1, out stat) == false)
                     break;
                 if (_exp < stat.totalExp)
                     break;
                 level++;
+                
+                _exp = _exp - stat.totalExp;
+                TotalExp = stat.totalExp;
             }
             if(level != Level)
             {
-                Debug.Log("Level Up!");
+                Debug.Log($"Level Up!");
                 Level = level;
                 SetStat(Level);
 
@@ -48,8 +60,6 @@ public class PlayerStat : Stat
 
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
-
-        UI_GameOver.instance.HideGameOver();
     }
 
     public void SetStat(int level)

@@ -16,6 +16,7 @@ public class Stat : MonoBehaviour
     protected int _defense;
     [SerializeField]
     protected float _moveSpeed;
+ 
 
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }
@@ -51,7 +52,7 @@ public class Stat : MonoBehaviour
         if (playerStat != null)
         {
             playerStat.Exp += 5;
-        }        
+        }
         
         //죽고나서 죽음 애니메이션이 재생되는 동안 지연
         Invoke("Despawn", 2.0f);

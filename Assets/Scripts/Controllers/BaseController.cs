@@ -22,7 +22,30 @@ public abstract class BaseController : MonoBehaviour
         {
             _state = value;
 
-            if (name == "Spider")
+            if (name.Contains("Player"))
+            {
+                Animator anim = GetComponent<Animator>();
+
+                switch (_state)
+                {
+                    case Define.State.Die:
+                        anim.CrossFade("DIE", 0.1f);
+                        break;
+                    case Define.State.Idle:
+                        anim.CrossFade("WAIT", 0.1f);
+                        break;
+                    case Define.State.Moving:
+                        anim.CrossFade("RUN", 0.1f);
+                        break;
+                    case Define.State.Skill:
+                        anim.CrossFade("ATTACK", 0.1f, -1, 0);
+                        break;
+                    case Define.State.Skill1:
+                        anim.CrossFade("SKILL1", 0.1f, -1, 0);
+                        break;
+                }
+            }
+            else if (name == "Spider")
             {
                 Animation anim = GetComponentInChildren<Animation>();
 
@@ -86,6 +109,9 @@ public abstract class BaseController : MonoBehaviour
             case Define.State.Skill:
                 UpdateSkill();
                 break;
+            case Define.State.Skill1:
+                UpdateSkill1();
+                break;
         }
     }
 
@@ -95,4 +121,5 @@ public abstract class BaseController : MonoBehaviour
     protected virtual void UpdateMoving() { }
     protected virtual void UpdateIdle() { }
     protected virtual void UpdateSkill() { }
+    protected virtual void UpdateSkill1() { }
 }

@@ -20,6 +20,8 @@ public class MonsterController : BaseController
     //ÇÇ°ÝÈ¿°ú
     [SerializeField]
     ParticleSystem hitEffect;
+    [SerializeField]
+    ParticleSystem skillEffect1;
 
     public override void Init()
     {
@@ -37,6 +39,7 @@ public class MonsterController : BaseController
 
         //ÇÇ°ÝÈ¿°ú ¸ØÃã
         hitEffect.Stop();
+        skillEffect1.Stop();
     }
 
     //Ç¥½Ã¸¶Å©¸¦ ¼û±è
@@ -54,6 +57,10 @@ public class MonsterController : BaseController
     public void ShowHitEffect()
     {
         hitEffect.Play();
+    }
+    public void ShowSkillEffect1()
+    {
+        skillEffect1.Play();
     }
 
     protected override void UpdateIdle()
@@ -166,7 +173,7 @@ public class MonsterController : BaseController
                 if (distance <= _attackRange)
                 {
                     targetStat.OnAttacked(_stat);
-                    Managers.Sound.Play("EnemyHit");
+                    Managers.Sound.Play("Effects/EnemyHit");
 
                     State = Define.State.Skill;
                 }

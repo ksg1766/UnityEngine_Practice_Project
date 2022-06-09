@@ -35,9 +35,9 @@ public class Stat : MonoBehaviour
         _moveSpeed = 4.0f;
     }
 
-    public virtual void OnAttacked(Stat attacker)
+    public virtual void OnAttacked(Stat attacker, float skillCoeff = 1.0f)
     {
-        int damage = Mathf.Max(0, attacker.Attack - Defense);
+        int damage = Mathf.Max(0, (int)(skillCoeff * attacker.Attack) - Defense);
         Hp -= damage;
         if (Hp <= 0)
         {

@@ -43,7 +43,7 @@ public class PlayerStat : Stat
                 Level = level;
                 SetStat(Level);
 
-                Managers.Sound.Play("LevelUp");
+                Managers.Sound.Play("Effects/LevelUp");
             }
         }
     }

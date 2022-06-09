@@ -25,7 +25,22 @@ public class PlayerController : BaseController
 
     protected override void UpdateMoving()
     {
-        if(_lockTarget != null)
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //Debug.Log("SKILL");
+            if (_lockTarget != null)
+            {    
+                _destPos = _lockTarget.transform.position;
+                float distance = (_destPos - transform.position).magnitude;
+                if (distance <= _attackRange)
+                {
+                    State = Define.State.Skill1;
+                    return;
+                }
+            }
+        }
+
+        if (_lockTarget != null)
         {
             _destPos = _lockTarget.transform.position;
             float distance = (_destPos - transform.position).magnitude;
@@ -50,6 +65,7 @@ public class PlayerController : BaseController
             {
                 if(Input.GetMouseButton(0) == false)
                     State = Define.State.Idle;
+
                 return;
             }
 
@@ -79,6 +95,21 @@ public class PlayerController : BaseController
             time = 0.0f;
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //Debug.Log("SKILL");
+            if (_lockTarget != null)
+            {
+                _destPos = _lockTarget.transform.position;
+                float distance = (_destPos - transform.position).magnitude;
+                if (distance <= _attackRange)
+                {
+                    State = Define.State.Skill1;
+                    return;
+                }
+            }
+        }
+
         //죽었을 때 상태 변경
         if (_stat.Hp <= 0)
         {
@@ -90,6 +121,23 @@ public class PlayerController : BaseController
     protected override void UpdateSkill()
     {
         if(_lockTarget != null)
+        {
+            Vector3 dir = _lockTarget.transform.position - transform.position;
+            Quaternion quat = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
+        }
+
+        //죽었을 때 상태 변경
+        if (_stat.Hp <= 0)
+        {
+            State = Define.State.Die;
+            return;
+        }
+    }
+
+    protected override void UpdateSkill1()
+    {
+        if (_lockTarget != null)
         {
             Vector3 dir = _lockTarget.transform.position - transform.position;
             Quaternion quat = Quaternion.LookRotation(dir);
@@ -122,9 +170,8 @@ public class PlayerController : BaseController
                 {
                     targetStat.OnAttacked(_stat);
 
-                    //공격 시 효과 재생
                     _lockTarget.GetComponent<MonsterController>().ShowHitEffect();
-                    Managers.Sound.Play("PlayerHit");
+                    Managers.Sound.Play("Effects/PlayerHit");
                 }
             }
             else
@@ -140,6 +187,39 @@ public class PlayerController : BaseController
         else
         {
             State = Define.State.Skill;
+        }
+    }
+
+    void OnSkillEvent1()
+    {
+        if (_lockTarget != null)
+        {
+            Stat targetStat = _lockTarget.GetComponent<Stat>();
+
+            if (targetStat.Hp > 0)
+            {
+                float distance = (_lockTarget.transform.position - transform.position).magnitude;
+                if (distance <= _attackRange)
+                {
+                    targetStat.OnAttacked(_stat, 2.0f);
+
+                    _lockTarget.GetComponent<MonsterController>().ShowSkillEffect1();
+                    Managers.Sound.Play("Effects/PlayerSkill1");
+                }
+            }
+            else
+            {
+                _stopSkill = true;
+            }
+        }
+
+        if (_stopSkill)
+        {
+            State = Define.State.Idle;
+        }
+        else
+        {
+            State = Define.State.Skill1;
         }
     }
 
@@ -161,7 +241,7 @@ public class PlayerController : BaseController
                 break;
             case Define.State.Die:
                 {
-                    //죽고 부활했을 때를 위한 상태 초기화
+                    //죽었을 때 클릭하면 부활
                     State = Define.State.Idle;
                 }
                 break;

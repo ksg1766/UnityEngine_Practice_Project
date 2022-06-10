@@ -23,6 +23,7 @@ public class GameScene : BaseScene
 
         GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "PlayerCharacter(temp)");//, GameObject.Find("PlayerCharacter").transform);// GameObject.Find("PlayerCharacter").transform
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
+        GameObject.FindWithTag("MiniCam").GetOrAddComponent<MiniCamController>().SetPlayer(player);
 
         //Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
         GameObject go = new GameObject { name = "SpawningPool" };

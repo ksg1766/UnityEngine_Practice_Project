@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - MiniCam
+  - PotionShop
+  - WeaponShop
   layers:
   - Default
   - TransparentFX

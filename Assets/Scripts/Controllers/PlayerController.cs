@@ -12,14 +12,18 @@ public class PlayerController : BaseController
 
     private float _attackRange = 2.0f;
 
+    GameObject nearObject;
+
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
         Managers.Input.MouseAction -= OnMouseEvent;
+        Managers.Input.KeyAction -= OnKeyboardEvent;
         Managers.Input.MouseAction += OnMouseEvent;
-        
-        if(gameObject.GetComponentInChildren<UI_HPBar>() == null)
+        Managers.Input.KeyAction += OnKeyboardEvent;
+
+        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
     }
 
@@ -83,6 +87,7 @@ public class PlayerController : BaseController
     }
 
     private float time = 0.0f;
+
     protected override void UpdateIdle()
     {
         time += Time.deltaTime;
@@ -250,6 +255,7 @@ public class PlayerController : BaseController
 
     //전에 선택한 대상을 위한 변수
     private GameObject preTarget;
+
     void OnMouseEvent_IdleRun(Define.MouseEvent evt)
     {
         RaycastHit hit;
@@ -296,6 +302,67 @@ public class PlayerController : BaseController
             case Define.MouseEvent.PointerUp:
                 _stopSkill = true;
                 break;
+        }
+    }
+
+    void OnKeyboardEvent(Define.KeyboardEvent evt)
+    {
+        switch (evt)
+        {
+            case Define.KeyboardEvent.Key_G:
+                {
+                    Interaction();
+                }
+                break;
+        }
+    }
+
+    void Interaction()
+    {
+        if (nearObject.CompareTag("PotionShop"))
+        {
+            PotionShop potionshop = nearObject.GetComponent<PotionShop>();
+            potionshop.Enter(_stat);
+        }
+        else if (nearObject.CompareTag("WeaponShop"))
+        {
+            WeaponShop weaponshop = nearObject.GetComponent<WeaponShop>();
+            weaponshop.Enter(_stat);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Managers.Resource.Instantiate("Interactive Button", GameObject.Find("PopUp Canvas/Others").transform);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PotionShop"))
+        {
+            nearObject = other.gameObject;
+        }
+        else if (other.CompareTag("WeaponShop"))
+        {
+            nearObject = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PotionShop"))
+        {
+            PotionShop potionshop = nearObject.GetComponent<PotionShop>();
+            potionshop.Exit();
+            nearObject = null;
+            Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
+        }
+        else if (other.CompareTag("WeaponShop"))
+        {
+            WeaponShop weaponshop = nearObject.GetComponent<WeaponShop>();
+            weaponshop.Exit();
+            nearObject = null;
+            Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
         }
     }
 }

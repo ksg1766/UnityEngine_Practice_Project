@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InputManager
-{    
-    public Action KeyAction = null;
+{
+    public Action<Define.KeyboardEvent> KeyAction = null;
     public Action<Define.MouseEvent> MouseAction = null;
 
     bool _pressed = false;
@@ -16,8 +16,13 @@ public class InputManager
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (Input.anyKey && KeyAction != null)
-            KeyAction.Invoke();
+        if (KeyAction != null) //Input.anyKey && KeyAction != null
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_G);
+            }
+        }
 
         if (MouseAction != null)
         {

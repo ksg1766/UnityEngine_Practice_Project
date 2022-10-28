@@ -39,4 +39,8 @@ public class LoginScene : BaseScene
             }
         }
     }
+    public void SignUpButtonClick()
+    {
+        Managers.Scene.LoadScene(Define.Scene.TestScene);
+    }
 }

@@ -29,7 +29,7 @@ public class LoginScene : BaseScene
         UnityGoogleSheet.Load<Userinfo.User>();
         foreach(var value in Userinfo.User.UserList)
         {
-            if(value.ID == InputField_ID.text && value.Password == InputField_Password.text)
+            if(InputField_ID.text == value.ID && InputField_Password.text == value.Password)
             {
                 Debug.Log(InputField_ID.text);
                 Debug.Log(InputField_Password.text);

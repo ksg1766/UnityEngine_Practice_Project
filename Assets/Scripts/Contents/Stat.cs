@@ -16,7 +16,6 @@ public class Stat : MonoBehaviour
     protected int _defense;
     [SerializeField]
     protected float _moveSpeed;
- 
 
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }

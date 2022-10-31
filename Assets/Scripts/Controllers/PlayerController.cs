@@ -140,23 +140,6 @@ public class PlayerController : BaseController
         }
     }
 
-    protected override void UpdateSkill1()
-    {
-        if (_lockTarget != null)
-        {
-            Vector3 dir = _lockTarget.transform.position - transform.position;
-            Quaternion quat = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
-        }
-
-        //죽었을 때 상태 변경
-        if (_stat.Hp <= 0)
-        {
-            State = Define.State.Die;
-            return;
-        }
-    }
-
     protected override void UpdateDie()
     {
 
@@ -327,7 +310,7 @@ public class PlayerController : BaseController
         else if (nearObject.CompareTag("WeaponShop"))
         {
             WeaponShop weaponshop = nearObject.GetComponent<WeaponShop>();
-            weaponshop.Enter(_stat);
+            weaponshop.Enter();
         }
     }
 

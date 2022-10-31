@@ -12,6 +12,7 @@ public class PlayerStat : Stat
     public float _totalExp;
 
     public float TotalExp { get { return _totalExp; } set { _totalExp = value; } }
+    public int Gold { get { return _gold; } set { _gold = value; } }
 
     public int Exp {
         get { return _exp; }
@@ -47,14 +48,13 @@ public class PlayerStat : Stat
             }
         }
     }
-    public int Gold { get { return _gold; } set { _gold = value; } }
 
     private void Start()
     {
         _level = 1;
         _exp = 0;
         _moveSpeed = 5.0f;
-        _gold = 0;
+        _gold = 10000;
 
         SetStat(_level);
 

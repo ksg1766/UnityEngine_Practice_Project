@@ -1752,7 +1752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 198244085}
         m_TargetAssemblyTypeName: LoginScene, Assembly-CSharp
-        m_MethodName: Clear
+        m_MethodName: SignUpButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

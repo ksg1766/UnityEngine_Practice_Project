@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UGS;
-public class SignUpScene : MonoBehaviour
+public class SignUpScene : BaseScene//MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("TempLoginScreen")]
@@ -68,5 +68,13 @@ public class SignUpScene : MonoBehaviour
     {
         FailPanel.SetActive(false);
         IsSignUp = false;
+    }
+    public void GoBackToLogin()
+    {
+        Managers.Scene.LoadScene(Define.Scene.Login);
+    }
+    public override void Clear()
+    {
+
     }
 }

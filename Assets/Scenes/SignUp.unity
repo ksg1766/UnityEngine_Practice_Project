@@ -1563,7 +1563,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 785355123}
-  - component: {fileID: 785355122}
   m_Layer: 0
   m_Name: '@Scene'
   m_TagString: Untagged
@@ -1571,22 +1570,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &785355122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785355121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a36147a5a508f4a85fa34eeeb89fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputField_ID: {fileID: 0}
-  InputField_Password: {fileID: 0}
-  PlayButton: {fileID: 0}
-  IsLogin: 0
 --- !u!4 &785355123
 Transform:
   m_ObjectHideFlags: 0
@@ -2763,7 +2746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1617960458}
   - component: {fileID: 1617960460}
-  - component: {fileID: 1617960459}
   m_Layer: 5
   m_Name: Text Area
   m_TagString: Untagged
@@ -2793,22 +2775,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1617960459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617960457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a36147a5a508f4a85fa34eeeb89fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputField_ID: {fileID: 0}
-  InputField_Password: {fileID: 0}
-  PlayButton: {fileID: 0}
-  IsLogin: 0
 --- !u!114 &1617960460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,7 +3161,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1741905707}
   - component: {fileID: 1741905708}
-  - component: {fileID: 1741905709}
   m_Layer: 5
   m_Name: Text Area
   m_TagString: Untagged
@@ -3239,22 +3204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!114 &1741905709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741905706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a36147a5a508f4a85fa34eeeb89fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputField_ID: {fileID: 0}
-  InputField_Password: {fileID: 0}
-  PlayButton: {fileID: 0}
-  IsLogin: 0
 --- !u!1 &1817582644
 GameObject:
   m_ObjectHideFlags: 0

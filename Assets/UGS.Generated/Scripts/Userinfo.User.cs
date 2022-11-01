@@ -59,6 +59,7 @@ namespace Userinfo
 		public System.String name;
 		public System.String ID;
 		public System.String Password;
+		public System.Int32 MaxHP;
 		public System.Int32 HP;
 		public System.Int32 MP;
 		public System.Int32 Level;

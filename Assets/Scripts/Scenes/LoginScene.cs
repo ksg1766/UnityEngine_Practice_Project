@@ -7,20 +7,27 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LoginScene : BaseScene
 {
-    [Header("TempLOginScreen")]
+    [Header("TempLoginScreen")]
     public TMP_InputField InputField_ID;
     public TMP_InputField InputField_Password;
     public Button PlayButton;
+    public GameObject LoginFailedPanel;
+    public Button LoginFailedButton;
     public bool IsLogin = false;
     protected override void Init()
     {
         base.Init();
         SceneType = Define.Scene.Login;
     }
+    private void Start()
+    {
+        LoginFailedPanel.SetActive(false);
+    }
     private void Update()
     {
         if(IsLogin)
         {
+            LoginFailedPanel.SetActive(false);
             Managers.Scene.LoadScene(Define.Scene.TestScene);
         }
     }
@@ -35,13 +42,19 @@ public class LoginScene : BaseScene
                     PlayerPrefs.SetString("ID", value.ID);
                     IsLogin = true;
                     System.GC.Collect();
-                    break;
+                    continue;
                 }
             }
+            LoginFailedPanel.SetActive(true);
         }, true);
     }
     public void SignUpButtonClick()
     {
         Managers.Scene.LoadScene(Define.Scene.SignUp);
+    }
+    public void LoginFailedButtonClick()
+    {
+        IsLogin = false;
+        LoginFailedPanel.SetActive(false);
     }
 }

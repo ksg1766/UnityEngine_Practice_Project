@@ -58,12 +58,13 @@ public class SignUpScene : BaseScene//MonoBehaviour
         newData.ID = InputField_ID.text;
         newData.Password = InputField_Password.text;
         newData.ID = InputField_ID.text;
-        newData.HP = 200;
+        newData.MaxHP = 50;
+        newData.HP = 50;
         newData.MP = 50;
         newData.Level = 1;
         newData.Exp = 0;
-        newData.ATK = 40;
-        newData.DEF = 10;
+        newData.ATK = 10;
+        newData.DEF = 5;
         newData.Money = 10000;
 
         UnityGoogleSheet.Write<Userinfo.User>(newData);

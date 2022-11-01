@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UGS;
 public class Stat : MonoBehaviour
 {
     [SerializeField]
@@ -16,7 +16,6 @@ public class Stat : MonoBehaviour
     protected int _defense;
     [SerializeField]
     protected float _moveSpeed;
-
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }
     public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
@@ -26,6 +25,21 @@ public class Stat : MonoBehaviour
 
     private void Start()
     {
+        // 데이터베이스에서 가지고 올 스텟
+        //UnityGoogleSheet.LoadFromGoogle<string, Userinfo.User>((list, map) =>
+        //{
+        //    foreach (var value in list)
+        //    {
+        //        if (value.ID == ID)
+        //        {
+        //            _level = value.Level;
+        //            _hp = value.HP;
+        //            _maxHp = value.MaxHP;
+        //            _attack = value.ATK;
+        //            _defense = value.DEF;
+        //        }
+        //    }
+        //}, true);\
         _level = 1;
         _hp = 50;
         _maxHp = 50;
@@ -61,4 +75,5 @@ public class Stat : MonoBehaviour
     {
         Managers.Game.Despawn(gameObject);
     }
+
 }

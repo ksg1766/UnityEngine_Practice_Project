@@ -20,6 +20,7 @@ public class SignUpScene : BaseScene//MonoBehaviour
     public bool IsSignUp = false;
     void Start()
     {
+        UnityGoogleSheet.Load<Userinfo.User>();
         SuccessPanel.SetActive(false);
         FailPanel.SetActive(false);
     }
@@ -32,7 +33,6 @@ public class SignUpScene : BaseScene//MonoBehaviour
 
     public void SignUpButtonClick()
     {
-        UnityGoogleSheet.Load<Userinfo.User>();
         foreach (var value in Userinfo.User.UserList)
         {
             if (InputField_ID.text == value.ID)
@@ -57,12 +57,24 @@ public class SignUpScene : BaseScene//MonoBehaviour
         newData.name = InputField_Name.text;
         newData.ID = InputField_ID.text;
         newData.Password = InputField_Password.text;
+        newData.ID = InputField_ID.text;
+        newData.HP = 200;
+        newData.MP = 50;
+        newData.Level = 1;
+        newData.Exp = 0;
+        newData.ATK = 40;
+        newData.DEF = 10;
+        newData.Money = 10000;
 
         UnityGoogleSheet.Write<Userinfo.User>(newData);
+        
+
+        System.GC.Collect();
+       
         SuccessPanel.SetActive(false);
         IsSignUp = false;
-        //이 부분 로그인 씬으로 넘어가도록
-        //Managers.Scene.LoadScene(Define.Scene.TestScene);
+
+        GoBackToLogin();
     }
     public void SignUpFailed()
     {

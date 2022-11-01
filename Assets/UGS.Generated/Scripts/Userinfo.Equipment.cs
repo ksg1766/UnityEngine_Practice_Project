@@ -17,55 +17,52 @@ using UnityEngine;
 namespace Userinfo
 {
     [GoogleSheet.Attribute.TableStruct]
-    public partial class User : ITable
+    public partial class Equipment : ITable
     { 
 
-        public delegate void OnLoadedFromGoogleSheets(List<User> loadedList, Dictionary<string, User> loadedDictionary);
+        public delegate void OnLoadedFromGoogleSheets(List<Equipment> loadedList, Dictionary<string, Equipment> loadedDictionary);
 
         static bool isLoaded = false;
         static string spreadSheetID = "1yM3Oz0-5mEM3Ouvo_ssHY5nZJnZ7C1JkUsz3ISh-XsM"; // it is file id
-        static string sheetID = "0"; // it is sheet id
+        static string sheetID = "1878728344"; // it is sheet id
         static UnityFileReader reader = new UnityFileReader();
 
 /* Your Loaded Data Storage. */
     
-        public static Dictionary<string, User> UserMap = new Dictionary<string, User>();  
-        public static List<User> UserList = new List<User>();   
+        public static Dictionary<string, Equipment> EquipmentMap = new Dictionary<string, Equipment>();  
+        public static List<Equipment> EquipmentList = new List<Equipment>();   
 
         /// <summary>
-        /// Get User List 
+        /// Get Equipment List 
         /// Auto Load
         /// </summary>
-        public static List<User> GetList()
+        public static List<Equipment> GetList()
         {{
            if (isLoaded == false) Load();
-           return UserList;
+           return EquipmentList;
         }}
 
         /// <summary>
-        /// Get User Dictionary, keyType is your sheet A1 field type.
+        /// Get Equipment Dictionary, keyType is your sheet A1 field type.
         /// - Auto Load
         /// </summary>
-        public static Dictionary<string, User>  GetDictionary()
+        public static Dictionary<string, Equipment>  GetDictionary()
         {{
            if (isLoaded == false) Load();
-           return UserMap;
+           return EquipmentMap;
         }}
 
     
 
 /* Fields. */
 
-		public System.String name;
 		public System.String ID;
-		public System.String Password;
-		public System.Int32 HP;
-		public System.Int32 MP;
-		public System.Int32 Level;
-		public System.Int32 Exp;
-		public System.Int32 ATK;
-		public System.Int32 DEF;
-		public System.Int32 Money;
+		public System.Int32 Weapon;
+		public System.Int32 Hat;
+		public System.Int32 Top;
+		public System.Int32 Pants;
+		public System.Int32 Gloves;
+		public System.Int32 Shoes;
   
 
 #region fuctions
@@ -76,7 +73,7 @@ namespace Userinfo
             if(isLoaded && forceReload == false)
             {
 #if UGS_DEBUG
-                 Debug.Log("User is already loaded! if you want reload then, forceReload parameter set true");
+                 Debug.Log("Equipment is already loaded! if you want reload then, forceReload parameter set true");
 #endif
                  return;
             }
@@ -92,7 +89,7 @@ namespace Userinfo
         }
  
 
-        public static void LoadFromGoogle(System.Action<List<User>, Dictionary<string, User>> onLoaded, bool updateCurrentData = false)
+        public static void LoadFromGoogle(System.Action<List<Equipment>, Dictionary<string, Equipment>> onLoaded, bool updateCurrentData = false)
         {      
                 IHttpProtcol webInstance = null;
     #if UNITY_EDITOR
@@ -120,14 +117,14 @@ namespace Userinfo
                
 
 
-    public static (List<User> list, Dictionary<string, User> map) CommonLoad(Dictionary<string, Dictionary<string, List<string>>> jsonObject, bool forceReload){
-            Dictionary<string, User> Map = new Dictionary<string, User>();
-            List<User> List = new List<User>();     
+    public static (List<Equipment> list, Dictionary<string, Equipment> map) CommonLoad(Dictionary<string, Dictionary<string, List<string>>> jsonObject, bool forceReload){
+            Dictionary<string, Equipment> Map = new Dictionary<string, Equipment>();
+            List<Equipment> List = new List<Equipment>();     
             TypeMap.Init();
-            FieldInfo[] fields = typeof(User).GetFields(BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo[] fields = typeof(Equipment).GetFields(BindingFlags.Public | BindingFlags.Instance);
             List<(string original, string propertyName, string type)> typeInfos = new List<(string, string, string)>(); 
             List<List<string>> rows = new List<List<string>>();
-            var sheet = jsonObject["User"];
+            var sheet = jsonObject["Equipment"];
 
             foreach (var column in sheet.Keys)
             {
@@ -146,7 +143,7 @@ namespace Userinfo
                         int rowCount = rows[0].Count;
                         for (int i = 0; i < rowCount; i++)
                         {
-                            User instance = new User();
+                            Equipment instance = new Equipment();
                             for (int j = 0; j < typeInfos.Count; j++)
                             {
                                 try
@@ -183,12 +180,12 @@ namespace Userinfo
                               
                             }
                             List.Add(instance); 
-                            Map.Add(instance.name, instance);
+                            Map.Add(instance.ID, instance);
                         }
                         if(isLoaded == false || forceReload)
                         { 
-                            UserList = List;
-                            UserMap = Map;
+                            EquipmentList = List;
+                            EquipmentMap = Map;
                             isLoaded = true;
                         }
                     } 
@@ -198,10 +195,10 @@ namespace Userinfo
 
  
 
-        public static void Write(User data, System.Action<WriteObjectResult> onWriteCallback = null)
+        public static void Write(Equipment data, System.Action<WriteObjectResult> onWriteCallback = null)
         { 
             TypeMap.Init();
-            FieldInfo[] fields = typeof(User).GetFields(BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo[] fields = typeof(Equipment).GetFields(BindingFlags.Public | BindingFlags.Instance);
             var datas = new string[fields.Length];
             for (int i = 0; i < fields.Length; i++)
             {

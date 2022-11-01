@@ -27,13 +27,12 @@ public class LoginScene : BaseScene
     public override void Clear()
     {
         UnityGoogleSheet.Load<Userinfo.User>();
+
         foreach(var value in Userinfo.User.UserList)
         {
             if(InputField_ID.text == value.ID && InputField_Password.text == value.Password)
             {
-                Debug.Log(InputField_ID.text);
-                Debug.Log(InputField_Password.text);
-                Debug.Log("LoginScene Clear!");
+                PlayerPrefs.SetString("ID", value.ID);
                 IsLogin = true;
                 break;
             }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UGS;
 public class PlayerStat : Stat
 {
     [SerializeField]
@@ -51,10 +51,11 @@ public class PlayerStat : Stat
 
     private void Start()
     {
+
         _level = 1;
         _exp = 0;
         _moveSpeed = 5.0f;
-        _gold = 10000;
+        _gold = 1000;
 
         SetStat(_level);
 

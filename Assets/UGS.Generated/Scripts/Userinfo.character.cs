@@ -60,6 +60,10 @@ namespace Userinfo
 		public System.Int32 HP;
 		public System.Int32 MP;
 		public System.Int32 Level;
+		public System.Int32 Exp;
+		public System.Int32 ATK;
+		public System.Int32 DEF;
+		public System.Int32 Money;
   
 
 #region fuctions

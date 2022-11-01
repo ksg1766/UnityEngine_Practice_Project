@@ -12,11 +12,12 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         base.Init();
-
+        string ID = PlayerPrefs.GetString("ID");
         SceneType = Define.Scene.Game;
         //
         //Managers.UI.ShowSceneUI<UI_Inven>();
-        
+
+        Debug.Log(ID);
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
 
         gameObject.GetOrAddComponent<CursorController>();

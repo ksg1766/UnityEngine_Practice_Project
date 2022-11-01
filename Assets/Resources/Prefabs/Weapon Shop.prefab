@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactive Zone
       objectReference: {fileID: 0}
+    - target: {fileID: 22762927595900001, guid: a69fd02c2bbe1914b91a64a85042140b, type: 3}
+      propertyPath: m_TagString
+      value: WeaponShop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69fd02c2bbe1914b91a64a85042140b, type: 3}
 --- !u!4 &5789010047302865711 stripped

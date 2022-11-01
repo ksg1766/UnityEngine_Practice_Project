@@ -198,6 +198,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7779934762982381742, guid: 325f79f7a8d96d04687938232dda407b, type: 3}
+      propertyPath: m_TagString
+      value: PotionShop
+      objectReference: {fileID: 0}
     - target: {fileID: 7779934762982381743, guid: 325f79f7a8d96d04687938232dda407b, type: 3}
       propertyPath: m_RootOrder
       value: 1

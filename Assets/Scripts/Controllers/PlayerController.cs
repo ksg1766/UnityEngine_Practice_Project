@@ -297,6 +297,22 @@ public class PlayerController : BaseController
                     Interaction();
                 }
                 break;
+
+            case Define.KeyboardEvent.Key_ESC:
+                {
+                    if (nearObject.CompareTag("PotionShop"))
+                    {
+                        PotionShop potionshop = nearObject.GetComponent<PotionShop>();
+                        potionshop.Exit();
+                    }
+                    else if (nearObject.CompareTag("WeaponShop"))
+                    {
+                        WeaponShop weaponshop = nearObject.GetComponent<WeaponShop>();
+                        weaponshop.Exit();
+                        Debug.Log("Esc pushed");
+                    }
+                }
+                break;
         }
     }
 
@@ -305,7 +321,7 @@ public class PlayerController : BaseController
         if (nearObject.CompareTag("PotionShop"))
         {
             PotionShop potionshop = nearObject.GetComponent<PotionShop>();
-            potionshop.Enter(_stat);
+            potionshop.Enter();
         }
         else if (nearObject.CompareTag("WeaponShop"))
         {

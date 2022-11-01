@@ -26,17 +26,19 @@ public class LoginScene : BaseScene
     }
     public override void Clear()
     {
-        UnityGoogleSheet.Load<Userinfo.User>();
-
-        foreach(var value in Userinfo.User.UserList)
+        UnityGoogleSheet.LoadFromGoogle<string, Userinfo.User>((list, map) =>
         {
-            if(InputField_ID.text == value.ID && InputField_Password.text == value.Password)
+            foreach(var value in list)
             {
-                PlayerPrefs.SetString("ID", value.ID);
-                IsLogin = true;
-                break;
+                if (InputField_ID.text == value.ID && InputField_Password.text == value.Password)
+                {
+                    PlayerPrefs.SetString("ID", value.ID);
+                    IsLogin = true;
+                    System.GC.Collect();
+                    break;
+                }
             }
-        }
+        }, true);
     }
     public void SignUpButtonClick()
     {

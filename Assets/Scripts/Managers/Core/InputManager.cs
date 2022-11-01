@@ -13,16 +13,20 @@ public class InputManager
     float _pressedTime = 0;
     public void OnUpdate()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
-
         if (KeyAction != null) //Input.anyKey && KeyAction != null
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
                 KeyAction.Invoke(Define.KeyboardEvent.Key_G);
             }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_ESC);
+            }
         }
+
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
 
         if (MouseAction != null)
         {

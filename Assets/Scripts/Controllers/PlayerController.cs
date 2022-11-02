@@ -27,8 +27,8 @@ public class PlayerController : BaseController
         Managers.Input.MouseAction += OnMouseEvent;
         Managers.Input.KeyAction += OnKeyboardEvent;
 
-        if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
-            Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+        if (gameObject.GetComponentInChildren<UI_Nickname>() == null)
+            Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
 
         skillEffect2.Stop();
     }

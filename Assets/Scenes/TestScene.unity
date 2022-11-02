@@ -53974,6 +53974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2434563290763730507, guid: 7fae64327cf843c42adcf37d9c0cdff8, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fae64327cf843c42adcf37d9c0cdff8, type: 3}
 --- !u!1001 &9183674172691367651

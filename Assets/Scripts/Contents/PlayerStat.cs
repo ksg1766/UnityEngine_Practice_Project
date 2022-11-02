@@ -11,7 +11,8 @@ public class PlayerStat : Stat
     protected int _gold;
     [SerializeField]
     public float _totalExp;
-
+    
+    public string Name;
     static string ID;
     public float TotalExp { get { return _totalExp; } set { _totalExp = value; } }
     public int Gold { get { return _gold; } set { _gold = value; } }
@@ -60,6 +61,7 @@ public class PlayerStat : Stat
             {
                 if(value.ID == ID)
                 {
+                    Name = value.name;
                     _level = value.Level;
                     _exp = value.Exp;
                     _gold = value.Money;

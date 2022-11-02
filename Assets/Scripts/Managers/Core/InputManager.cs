@@ -23,6 +23,11 @@ public class InputManager
             {
                 KeyAction.Invoke(Define.KeyboardEvent.Key_ESC);
             }
+            //½ºÅ³
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_W);
+            }
         }
 
         if (EventSystem.current.IsPointerOverGameObject())

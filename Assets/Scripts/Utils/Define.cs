@@ -63,6 +63,7 @@ public class Define
     {
         Key_G,
         Key_ESC,
+        Key_W,
     }
 
     public enum CameraMode

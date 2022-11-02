@@ -14,6 +14,10 @@ public class PlayerController : BaseController
 
     GameObject nearObject;
 
+    //skill effect2
+    [SerializeField]
+    ParticleSystem skillEffect2;
+
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Player;
@@ -25,6 +29,8 @@ public class PlayerController : BaseController
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+
+        skillEffect2.Stop();
     }
 
     protected override void UpdateMoving()
@@ -211,6 +217,23 @@ public class PlayerController : BaseController
         }
     }
 
+    void OnSkillEvent2()
+    {
+        if (!skillEffect2.isPlaying)
+        {
+            skillEffect2.Play();
+            Managers.Sound.Play("Effects/PlayerSkill2");
+
+            _stat.Defense = 15;
+        }
+        else
+        {
+            _stat.Defense = 5;
+
+            skillEffect2.Stop();
+        }
+    }
+
     void OnMouseEvent(Define.MouseEvent evt)
     {
         switch (State)
@@ -311,6 +334,11 @@ public class PlayerController : BaseController
                         weaponshop.Exit();
                         Debug.Log("Esc pushed");
                     }
+                }
+                break;
+            case Define.KeyboardEvent.Key_W:
+                {
+                    OnSkillEvent2();
                 }
                 break;
         }

@@ -7,6 +7,7 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     static Managers Instance { get { Init(); return s_instance; } }
 
+    static string ID;
     #region Contents
     GameManager _game = new GameManager();
 
@@ -33,6 +34,7 @@ public class Managers : MonoBehaviour
 
     void Start()
     {
+        ID = PlayerPrefs.GetString("ID");
         Init();
     }
 

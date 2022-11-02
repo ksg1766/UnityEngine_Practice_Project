@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UGS;
 public class PlayerStat : Stat
@@ -8,12 +9,13 @@ public class PlayerStat : Stat
     protected int _exp;
     [SerializeField]
     protected int _gold;
-    //[SerializeField]
+    [SerializeField]
     public float _totalExp;
 
+    static string ID;
     public float TotalExp { get { return _totalExp; } set { _totalExp = value; } }
     public int Gold { get { return _gold; } set { _gold = value; } }
-
+     
     public int Exp {
         get { return _exp; }
         set
@@ -51,13 +53,21 @@ public class PlayerStat : Stat
 
     private void Start()
     {
-
-        _level = 1;
-        _exp = 0;
-        _moveSpeed = 5.0f;
-        _gold = 1000;
-
-        SetStat(_level);
+        ID = PlayerPrefs.GetString("ID");
+        UnityGoogleSheet.LoadFromGoogle<string, Userinfo.User>((list, map) =>
+        {
+            foreach (var value in list)
+            {
+                if(value.ID == ID)
+                {
+                    _level = value.Level;
+                    _exp = value.Exp;
+                    _gold = value.Money;
+                    _moveSpeed = 5.0f;
+                }
+            }
+            SetStat(_level);
+        }, true);
 
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;

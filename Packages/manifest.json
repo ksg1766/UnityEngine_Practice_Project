@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.cheeseallergyhamster.ugs": "file:C:/Users/qkrtj/Downloads/UGS1.0.7/UGS",
+    "com.cheeseallergyhamster.ugs": "file:../Assets/Unity Asset/UGS1.0.7/UGS",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.collab-proxy": "1.17.2",

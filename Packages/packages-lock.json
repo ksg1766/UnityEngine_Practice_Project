@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cheeseallergyhamster.ugs": {
-      "version": "file:C:/Users/qkrtj/Downloads/UGS1.0.7/UGS",
+      "version": "file:../Assets/Unity Asset/UGS1.0.7/UGS",
       "depth": 0,
       "source": "local",
       "dependencies": {

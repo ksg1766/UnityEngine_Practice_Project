@@ -11,31 +11,134 @@
       "level": "2",
       "maxHp": "250",
       "attack": "25",
-      "defense": "2",
+      "defense": "5",
       "totalExp": "10"
     },
     {
       "level": "3",
       "maxHp": "300",
       "attack": "30",
-      "defense": "5",
+      "defense": "10",
       "totalExp": "20"
     },
     {
       "level": "4",
       "maxHp": "350",
       "attack": "35",
-      "defense": "7",
+      "defense": "15",
       "totalExp": "30"
     },
     {
       "level": "5",
       "maxHp": "400",
       "attack": "40",
-      "defense": "10",
+      "defense": "20",
       "totalExp": "40"
+    },
+    {
+      "level": "6",
+      "maxHp": "450",
+      "attack": "45",
+      "defense": "25",
+      "totalExp": "50"
+    },
+    {
+      "level": "7",
+      "maxHp": "500",
+      "attack": "50",
+      "defense": "30",
+      "totalExp": "60"
+    },
+    {
+      "level": "8",
+      "maxHp": "550",
+      "attack": "55",
+      "defense": "35",
+      "totalExp": "70"
+    },
+    {
+      "level": "9",
+      "maxHp": "600",
+      "attack": "60",
+      "defense": "40",
+      "totalExp": "80"
+    },
+    {
+      "level": "10",
+      "maxHp": "650",
+      "attack": "65",
+      "defense": "45",
+      "totalExp": "90"
+    },
+    {
+      "level": "11",
+      "maxHp": "700",
+      "attack": "70",
+      "defense": "50",
+      "totalExp": "100"
+    },
+    {
+      "level": "12",
+      "maxHp": "750",
+      "attack": "75",
+      "defense": "55",
+      "totalExp": "110"
+    },
+    {
+      "level": "13",
+      "maxHp": "800",
+      "attack": "80",
+      "defense": "60",
+      "totalExp": "120"
+    },
+    {
+      "level": "14",
+      "maxHp": "850",
+      "attack": "85",
+      "defense": "65",
+      "totalExp": "130"
+    },
+    {
+      "level": "15",
+      "maxHp": "900",
+      "attack": "90",
+      "defense": "70",
+      "totalExp": "140"
+    },
+    {
+      "level": "16",
+      "maxHp": "950",
+      "attack": "95",
+      "defense": "75",
+      "totalExp": "150"
+    },
+    {
+      "level": "17",
+      "maxHp": "1000",
+      "attack": "100",
+      "defense": "80",
+      "totalExp": "160"
+    },
+    {
+      "level": "18",
+      "maxHp": "1050",
+      "attack": "105",
+      "defense": "85",
+      "totalExp": "170"
+    },
+    {
+      "level": "19",
+      "maxHp": "1100",
+      "attack": "110",
+      "defense": "90",
+      "totalExp": "180"
+    },
+    {
+      "level": "20",
+      "maxHp": "1150",
+      "attack": "115",
+      "defense": "95",
+      "totalExp": "190"
     }
   ]
-
-
 }

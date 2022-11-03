@@ -28,7 +28,7 @@ public class LoginScene : BaseScene
         if(IsLogin)
         {
             LoginFailedPanel.SetActive(false);
-            Managers.Scene.LoadScene(Define.Scene.TestScene);
+            Managers.Scene.LoadScene(Define.Scene.Stage1);
         }
     }
     public override void Clear()

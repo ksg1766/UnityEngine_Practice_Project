@@ -34,14 +34,14 @@ public class PotionShop : UI_Base //MonoBehaviour
 
     public override void Init()
     {
-        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        //_stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
     }
 
     public void Enter()
     {
         //_playerStat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
         //_stat = _playerStat;
-        //_stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
 
         if (GameObject.Find("Potion_Shop") == null)
         {
@@ -51,7 +51,7 @@ public class PotionShop : UI_Base //MonoBehaviour
         totalPrice = 0;
         //selected_list_count = 0;
 
-        GameObject.Find("MyGold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
         GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE\t\t\t : 0";
         GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t : {_stat.Gold}";
         // Util.FindChild(transform.gameObject, "MyGold").GetComponent<Text>().text = $"GOLD : {_stat.Gold}";
@@ -166,7 +166,7 @@ public class PotionShop : UI_Base //MonoBehaviour
             ++selected_list_count;
         }
 
-        GameObject.Find("MyGold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
         if (totalPrice > _stat.Gold)
         {
             GameObject.Find("Price").transform.GetComponent<Text>().text = "<color=#FF0000>" + $"PRICE \t\t\t: {totalPrice}" + "</color>";
@@ -185,18 +185,16 @@ public class PotionShop : UI_Base //MonoBehaviour
     public void clickBuyButton()
     {
 
-        if (totalPrice < _stat.Gold)
+        if (totalPrice <= _stat.Gold)
         {
-        _stat.Gold -= totalPrice;
-        _stat.PlayerInventory.addItem(SelectedList);
+            _stat.Gold -= totalPrice;
+            _stat.PlayerInventory.addItem(SelectedList);
         }
         else
             Debug.Log("Not Enough Gold");
         SelectedList.Clear();
         for (int i = 1; i<4; i++)
         {
-            //GameObject.Find($"Selected Item {i}").transform.Find($"potionshop_selected{i}").gameObject.GetComponent<Image>().sprite = null;
-            //GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.GetComponent<Text>().text = null; ;
             GameObject.Find($"Selected Item {i}").transform.Find($"potionshop_selected{i}").gameObject.SetActive(false);
             GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.SetActive(false);
         }

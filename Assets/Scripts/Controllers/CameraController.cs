@@ -69,11 +69,8 @@ public class CameraController : MonoBehaviour
             transform.position = _player.transform.position + _delta;   //플레이어 위치에 프레임마다 CameraZoom함수에서 갱신되는 _delta값을 더함.
                                                                         //이렇게 해야 줌 이동을 할 때 _delta값에 따라 부드럽게 카메라가 움직임. 이해 안가면 +_delta빼고 실행해 보자.
             transform.LookAt(_player.transform.position + Vector3.up);  //카메라 위치가 변하더라도 보는 위치는 고정
-
             float Distance = _delta.magnitude;
-
             Vector3 DirToCam = (transform.position - _player.transform.position).normalized;
-
             HitRayTransparentObject(_player.transform.position, DirToCam, Distance);    //플레이어 몸에서 카메라 방향으로 걸리는 장애물 반투명화
         }
 

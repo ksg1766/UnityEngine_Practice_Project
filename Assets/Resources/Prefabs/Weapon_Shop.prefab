@@ -1967,7 +1967,7 @@ GameObject:
   - component: {fileID: 7575553791602863517}
   - component: {fileID: 4021139471114958043}
   m_Layer: 7
-  m_Name: MyGold
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2555,7 +2555,7 @@ GameObject:
   - component: {fileID: 3480850114948115372}
   - component: {fileID: 7368233061957029500}
   m_Layer: 7
-  m_Name: MyGold
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -457,6 +457,7 @@ public class PlayerController : BaseController
             potionshop.Exit();
             nearObject = null;
             Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
+            //Destroy(potionshop);
         }
         else if (other.CompareTag("WeaponShop"))
         {
@@ -464,6 +465,7 @@ public class PlayerController : BaseController
             weaponshop.Exit();
             nearObject = null;
             Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
+            //Destroy(weaponshop);
         }
     }
 }

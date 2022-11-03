@@ -184,9 +184,12 @@ public class PotionShop : UI_Base //MonoBehaviour
 
     public void clickBuyButton()
     {
-        _stat.PlayerInventory.addItem(SelectedList);
+
         if (totalPrice < _stat.Gold)
-            _stat.Gold -= totalPrice;
+        {
+        _stat.Gold -= totalPrice;
+        _stat.PlayerInventory.addItem(SelectedList);
+        }
         else
             Debug.Log("Not Enough Gold");
         SelectedList.Clear();
@@ -197,6 +200,10 @@ public class PotionShop : UI_Base //MonoBehaviour
             GameObject.Find($"Selected Item {i}").transform.Find($"potionshop_selected{i}").gameObject.SetActive(false);
             GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.SetActive(false);
         }
+        totalPrice = 0;
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE\t\t\t: {totalPrice}";
+        GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t: {_stat.Gold - totalPrice}";
         _stat.PlayerInventory.ShowItem();
     }
 

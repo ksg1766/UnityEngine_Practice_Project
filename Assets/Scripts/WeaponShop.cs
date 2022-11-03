@@ -34,14 +34,14 @@ public class WeaponShop : UI_Base //MonoBehaviour
 
     public override void Init()
     {
-        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        //_stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
     }
 
     public void Enter()
     {
         //_playerStat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
         //_stat = _playerStat;
-        //_stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
 
         if (GameObject.Find("Weapon_Shop") == null)
         {
@@ -51,9 +51,9 @@ public class WeaponShop : UI_Base //MonoBehaviour
         totalPrice = 0;
         //selected_list_count = 0;
 
-        GameObject.Find("MyGold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
-        GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE \t\t : 0";
-        GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t : {_stat.Gold}";
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE\t\t\t: 0";
+        GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t: {_stat.Gold}";
         // Util.FindChild(transform.gameObject, "MyGold").GetComponent<Text>().text = $"GOLD : {_stat.Gold}";
     }
 
@@ -166,7 +166,7 @@ public class WeaponShop : UI_Base //MonoBehaviour
             ++selected_list_count;
         }
 
-        GameObject.Find("MyGold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
         if (totalPrice > _stat.Gold)
         {
             GameObject.Find("Price").transform.GetComponent<Text>().text = "<color=#FF0000>" + $"PRICE \t\t\t: {totalPrice}" + "</color>";
@@ -174,7 +174,7 @@ public class WeaponShop : UI_Base //MonoBehaviour
         }
         else
         {
-            GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE \t\t\t: {totalPrice}";
+            GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE\t\t\t: {totalPrice}";
             GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t: {_stat.Gold - totalPrice}";
         }
 
@@ -184,9 +184,12 @@ public class WeaponShop : UI_Base //MonoBehaviour
 
     public void clickBuyButton()
     {
-        _stat.PlayerInventory.addItem(SelectedList);
-        if (totalPrice < _stat.Gold)
+
+        if (totalPrice <= _stat.Gold)
+        {
             _stat.Gold -= totalPrice;
+            _stat.PlayerInventory.addItem(SelectedList);
+        }
         else
             Debug.Log("Not Enough Gold");
         SelectedList.Clear();
@@ -197,6 +200,10 @@ public class WeaponShop : UI_Base //MonoBehaviour
             GameObject.Find($"Selected Item {i}").transform.Find($"weaponshop_selected{i}").gameObject.SetActive(false);
             GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.SetActive(false);
         }
+        totalPrice = 0;
+        GameObject.Find("Gold").transform.GetComponent<Text>().text = $"GOLD\t\t\t: {_stat.Gold}";
+        GameObject.Find("Price").transform.GetComponent<Text>().text = $"PRICE\t\t\t: {totalPrice}";
+        GameObject.Find("Balance").transform.GetComponent<Text>().text = $"BALANCE\t: {_stat.Gold - totalPrice}";
         _stat.PlayerInventory.ShowItem();
     }
 

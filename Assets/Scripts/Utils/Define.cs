@@ -34,7 +34,9 @@ public class Define
         Lobby,
         Game,
         TestScene,
-        SignUp
+        SignUp,
+        Stage1,
+        Stage2,
     }
 
     public enum Sound

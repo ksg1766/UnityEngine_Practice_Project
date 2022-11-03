@@ -361,7 +361,7 @@ public class PlayerController : BaseController
                 {
                     if (nearObject == null)
                         break;
-                    else if (nearObject.CompareTag("PotionShop") || nearObject.CompareTag("WeaponShop"))
+                    else if (nearObject.CompareTag("PotionShop") || nearObject.CompareTag("WeaponShop") || nearObject.CompareTag("Portal"))
                         Interaction();
                     
                 }
@@ -430,6 +430,11 @@ public class PlayerController : BaseController
             WeaponShop weaponshop = nearObject.GetComponent<WeaponShop>();
             weaponshop.Enter();
         }
+        else if (nearObject.CompareTag("Portal"))
+        {
+            Portal portal = nearObject.GetComponent<Portal>();
+            portal.MoveToOtherScene();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -444,6 +449,10 @@ public class PlayerController : BaseController
             nearObject = other.gameObject;
         }
         else if (other.CompareTag("WeaponShop"))
+        {
+            nearObject = other.gameObject;
+        }
+        else if (other.CompareTag("Portal"))
         {
             nearObject = other.gameObject;
         }
@@ -466,6 +475,11 @@ public class PlayerController : BaseController
             nearObject = null;
             Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
             //Destroy(weaponshop);
+        }
+        else if (other.CompareTag("Portal"))
+        {
+            nearObject = null;
+            Managers.Resource.Destroy(GameObject.Find("Interactive Button"));
         }
     }
 }

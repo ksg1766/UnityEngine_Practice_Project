@@ -34,14 +34,14 @@ public class WeaponShop : UI_Base //MonoBehaviour
 
     public override void Init()
     {
-
+        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
     }
 
     public void Enter()
     {
         //_playerStat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
         //_stat = _playerStat;
-        _stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        //_stat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
 
         if (GameObject.Find("Weapon_Shop") == null)
         {
@@ -180,6 +180,24 @@ public class WeaponShop : UI_Base //MonoBehaviour
 
         
         //Util.FindChild(transform.gameObject, "MyGold").GetComponent<Text>().text = $"GOLD : {_stat.Gold}";
+    }
+
+    public void clickBuyButton()
+    {
+        _stat.PlayerInventory.addItem(SelectedList);
+        if (totalPrice < _stat.Gold)
+            _stat.Gold -= totalPrice;
+        else
+            Debug.Log("Not Enough Gold");
+        SelectedList.Clear();
+        for (int i = 1; i < 4; i++)
+        {
+            //GameObject.Find($"Selected Item {i}").transform.Find($"potionshop_selected{i}").gameObject.GetComponent<Image>().sprite = null;
+            //GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.GetComponent<Text>().text = null; ;
+            GameObject.Find($"Selected Item {i}").transform.Find($"weaponshop_selected{i}").gameObject.SetActive(false);
+            GameObject.Find($"Selected Item {i}").transform.Find($"number_of_selected{i}").gameObject.SetActive(false);
+        }
+        _stat.PlayerInventory.ShowItem();
     }
 
     // 선택된거 클릭 했을 때 취소 하는 것 추가 예정 : 해당 버튼에 등록된 아이템이 null이 아니라면 이름을 확인 후 SelectedList에서 지워보자

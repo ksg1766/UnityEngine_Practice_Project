@@ -62,8 +62,12 @@ public class Define
     public enum KeyboardEvent
     {
         Key_G,
+        Key_I,
         Key_ESC,
         Key_W,
+        Key_1,
+        Key_2,
+        Key_3,
     }
 
     public enum CameraMode

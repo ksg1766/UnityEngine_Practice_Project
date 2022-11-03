@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3681989309559426691}
   - component: {fileID: 3402051450682675291}
   - component: {fileID: 7759067464254675901}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: 70}
+  m_AnchoredPosition: {x: 510, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3402051450682675291
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8465436421076237462}
   - component: {fileID: 1384504615031949553}
   - component: {fileID: 1624721471114047480}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectSmallPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4652480161512646090}
   - component: {fileID: 3644914074315258725}
   - component: {fileID: 3092968290275998277}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_MediumPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 2012801816340231953}
   - component: {fileID: 202503394029585692}
   - component: {fileID: 9130808056224306612}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 2370588396187112609}
   - component: {fileID: 2911423440349664337}
   - component: {fileID: 1241037840997145135}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PriceMediumPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 276697860784110899}
   - component: {fileID: 5230191631613448227}
   - component: {fileID: 3455850242978414646}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 4806373390369603851}
   - component: {fileID: 5430215873627588260}
   - component: {fileID: 5178332707550936290}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectLargePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 8766267431197394972}
   - component: {fileID: 2754080507474543721}
   - component: {fileID: 254080314730237175}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 115028778861921711}
   - component: {fileID: 6558769017841159593}
   - component: {fileID: 4958022954570429648}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: potionshop_selected2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 1310740232394127662}
   - component: {fileID: 4705905964128088049}
   - component: {fileID: 2074036504278926698}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405, y: -230}
+  m_AnchoredPosition: {x: 675, y: -230}
   m_SizeDelta: {x: 210, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1310740232394127662
@@ -943,7 +943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4705905964128088049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7779934762982381731, guid: 325f79f7a8d96d04687938232dda407b, type: 3}
+        m_TargetAssemblyTypeName: PotionShop, Assembly-CSharp
+        m_MethodName: clickBuyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2757934854382328115
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327504137720414391}
   - component: {fileID: 8669846365960848847}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Potion_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1025,7 @@ GameObject:
   - component: {fileID: 5289976533684625976}
   - component: {fileID: 8910597141550158108}
   - component: {fileID: 6367022911030261865}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -230}
+  m_AnchoredPosition: {x: 150, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8910597141550158108
@@ -1091,7 +1103,7 @@ GameObject:
   - component: {fileID: 2032426400785748959}
   - component: {fileID: 2021273966060372192}
   - component: {fileID: 4450635645472506566}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1179,7 @@ GameObject:
   - component: {fileID: 8777619480134861026}
   - component: {fileID: 3860196074117692912}
   - component: {fileID: 8923511675885900669}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1255,7 @@ GameObject:
   - component: {fileID: 4600351922242066687}
   - component: {fileID: 68407374845278133}
   - component: {fileID: 2243739915517259627}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1331,7 @@ GameObject:
   - component: {fileID: 1171398638236783542}
   - component: {fileID: 2523379482667705854}
   - component: {fileID: 4364254588892311850}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1400,7 +1412,7 @@ GameObject:
   - component: {fileID: 8112781666416878473}
   - component: {fileID: 2633691447674700937}
   - component: {fileID: 2360463427977179875}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectMediumPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,7 +1545,7 @@ GameObject:
   - component: {fileID: 2286471365898602632}
   - component: {fileID: 7334296477277736412}
   - component: {fileID: 6535402916500293991}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: -230}
+  m_AnchoredPosition: {x: -10, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7334296477277736412
@@ -1611,7 +1623,7 @@ GameObject:
   - component: {fileID: 7935099145918980717}
   - component: {fileID: 8616012283807798172}
   - component: {fileID: 4824445588433618664}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1687,7 +1699,7 @@ GameObject:
   - component: {fileID: 8925914810020198539}
   - component: {fileID: 7982770391665111358}
   - component: {fileID: 7829659934728340868}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: potionshop_selected1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1763,7 +1775,7 @@ GameObject:
   - component: {fileID: 5295449195703561305}
   - component: {fileID: 6855042557249696964}
   - component: {fileID: 4748963133814465422}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BackBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1839,7 +1851,7 @@ GameObject:
   - component: {fileID: 2315448703641061701}
   - component: {fileID: 5993185962851234430}
   - component: {fileID: 7215239415691127367}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1866,7 +1878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -240, y: 70}
+  m_AnchoredPosition: {x: 30, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5993185962851234430
@@ -1918,7 +1930,7 @@ GameObject:
   - component: {fileID: 7652408378458458762}
   - component: {fileID: 5737265451822955414}
   - component: {fileID: 1973900836511325444}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_SmallPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2000,7 +2012,7 @@ GameObject:
   - component: {fileID: 2636907186691289213}
   - component: {fileID: 1468263898245222367}
   - component: {fileID: 2232366404485268880}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Potion_Shop_Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,9 +2034,9 @@ RectTransform:
   m_Father: {fileID: 2327504137720414391}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 600, y: 360}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 270, y: 0}
   m_SizeDelta: {x: 1200, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1468263898245222367
@@ -2076,7 +2088,7 @@ GameObject:
   - component: {fileID: 3613056646381987979}
   - component: {fileID: 3032163655260514563}
   - component: {fileID: 470047183508552357}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2152,7 +2164,7 @@ GameObject:
   - component: {fileID: 2198882945757395398}
   - component: {fileID: 9132350481790489745}
   - component: {fileID: 1183927978200317145}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PriceSmallPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2233,7 +2245,7 @@ GameObject:
   - component: {fileID: 801821586499503188}
   - component: {fileID: 988613242153771138}
   - component: {fileID: 7022550376896222240}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2260,7 +2272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: 270, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &988613242153771138
@@ -2312,7 +2324,7 @@ GameObject:
   - component: {fileID: 355348919795259421}
   - component: {fileID: 6336855738735525560}
   - component: {fileID: 186244270897914416}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2400,7 @@ GameObject:
   - component: {fileID: 1347424120795678849}
   - component: {fileID: 1939958840092204683}
   - component: {fileID: 9050131575352432103}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2414,7 +2426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -440, y: -230}
+  m_AnchoredPosition: {x: -170, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1939958840092204683
@@ -2466,7 +2478,7 @@ GameObject:
   - component: {fileID: 6256451303226673421}
   - component: {fileID: 2134530364709951268}
   - component: {fileID: 7704662343932924679}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2542,7 +2554,7 @@ GameObject:
   - component: {fileID: 7365424706838135107}
   - component: {fileID: 3480850114948115372}
   - component: {fileID: 7368233061957029500}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MyGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2567,7 +2579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -175}
+  m_AnchoredPosition: {x: 405, y: -175}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3480850114948115372
@@ -2623,7 +2635,7 @@ GameObject:
   - component: {fileID: 6521151607499392132}
   - component: {fileID: 2236390997705662278}
   - component: {fileID: 5854064118482510539}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2699,7 +2711,7 @@ GameObject:
   - component: {fileID: 3970156485713267910}
   - component: {fileID: 2367782011835698771}
   - component: {fileID: 4136283141001749742}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PriceLargePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2780,7 +2792,7 @@ GameObject:
   - component: {fileID: 4395869269246664434}
   - component: {fileID: 6481332417359015949}
   - component: {fileID: 5866693021265089547}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2860,7 +2872,7 @@ GameObject:
   - component: {fileID: 2039644533706580529}
   - component: {fileID: 4052786539617989707}
   - component: {fileID: 8279071107334929225}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: potionshop_selected3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2937,7 +2949,7 @@ GameObject:
   - component: {fileID: 6948198490740970408}
   - component: {fileID: 4889536792287067651}
   - component: {fileID: 1303051309457149464}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2962,7 +2974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 549, y: 309}
+  m_AnchoredPosition: {x: 819, y: 309}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6948198490740970408
@@ -3070,7 +3082,7 @@ GameObject:
   - component: {fileID: 8736854155826083520}
   - component: {fileID: 3266164280493703136}
   - component: {fileID: 2351438496047683866}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_LargePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3152,7 +3164,7 @@ GameObject:
   - component: {fileID: 2989156644648711487}
   - component: {fileID: 7973770567771876289}
   - component: {fileID: 5908410340702815723}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3177,7 +3189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -275}
+  m_AnchoredPosition: {x: 405, y: -275}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7973770567771876289
@@ -3233,7 +3245,7 @@ GameObject:
   - component: {fileID: 8902111715552243226}
   - component: {fileID: 8971725760933530467}
   - component: {fileID: 2674991245171125304}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3309,7 +3321,7 @@ GameObject:
   - component: {fileID: 7123301266326597869}
   - component: {fileID: 2591661644684270751}
   - component: {fileID: 7453077967056898356}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3334,7 +3346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 136, y: -225}
+  m_AnchoredPosition: {x: 405, y: -225}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2591661644684270751

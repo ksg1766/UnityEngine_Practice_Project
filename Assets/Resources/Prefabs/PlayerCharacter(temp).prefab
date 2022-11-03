@@ -9892,6 +9892,8 @@ MonoBehaviour:
   _exp: 0
   _gold: 0
   _totalExp: 0
+  PlayerInventory: {fileID: 0}
+  Name: 
 --- !u!114 &5942124230466169234
 MonoBehaviour:
   m_ObjectHideFlags: 0

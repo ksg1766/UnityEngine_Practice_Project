@@ -7,7 +7,7 @@ public class GameScene : BaseScene
     Coroutine co;
     UI_Popup tempInven;
     UI_Popup tempMenu;
-    bool InvenOn = false;
+    //bool InvenOn = false;
 
     protected override void Init()
     {
@@ -31,16 +31,16 @@ public class GameScene : BaseScene
 
     private void Update()
     {
-        if (InvenOn == false && Input.GetKeyDown(KeyCode.I))
+        /*if (InvenOn == false && Input.GetKeyDown(KeyCode.I))
         {
-            tempInven = Managers.UI.ShowPopupUI<UI_Inven>();
+            tempInven = Managers.UI.ShowPopupUI<Inventory>();
             InvenOn = true;
         }
         else if (InvenOn == true && Input.GetKeyDown(KeyCode.I))
         {
             Managers.UI.ClosePopupUI(tempInven);
             InvenOn = false;
-        }
+        }*/
     }
 
     public override void Clear()

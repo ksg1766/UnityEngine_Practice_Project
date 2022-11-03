@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 473517747368923580}
   m_Layer: 10
   m_Name: Potion Shop
-  m_TagString: Shop
+  m_TagString: PotionShop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464048114402487090}
-  m_LocalRotation: {x: -0, y: 0.6094177, z: -0, w: 0.79284936}
+  m_LocalRotation: {x: 0, y: 0.6094189, z: 0, w: 0.79284847}
   m_LocalPosition: {x: -4.0799866, y: 0.28955078, z: 19.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 465808435270532743}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75.095, z: 0}
 --- !u!33 &432663319717841514
 MeshFilter:
   m_ObjectHideFlags: 0

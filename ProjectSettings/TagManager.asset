@@ -8,6 +8,7 @@ TagManager:
   - MiniCam
   - PotionShop
   - WeaponShop
+  - Shop
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Main UI
+  - PopUp UI
   - Monster
   - Ground
   - Block

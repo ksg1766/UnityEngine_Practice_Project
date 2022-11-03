@@ -19,6 +19,10 @@ public class InputManager
             {
                 KeyAction.Invoke(Define.KeyboardEvent.Key_G);
             }
+            else if (Input.GetKeyDown(KeyCode.I))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_I);
+            }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 KeyAction.Invoke(Define.KeyboardEvent.Key_ESC);
@@ -27,6 +31,18 @@ public class InputManager
             else if (Input.GetKeyDown(KeyCode.W))
             {
                 KeyAction.Invoke(Define.KeyboardEvent.Key_W);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_1);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_2);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                KeyAction.Invoke(Define.KeyboardEvent.Key_3);
             }
         }
 

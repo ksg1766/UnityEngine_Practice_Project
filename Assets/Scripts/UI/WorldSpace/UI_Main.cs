@@ -34,5 +34,6 @@ public class UI_Main : UI_Base
         Util.FindChild(transform.gameObject, "Level_text").GetComponent<Text>().text = $"Level  {_stat.Level}";
 
         Util.FindChild(transform.gameObject, "Exp_text").GetComponent<Text>().text = $"Exp  {_stat.Exp} / {_stat.TotalExp}";
+        Util.FindChild(transform.gameObject, "MyGold").GetComponent<Text>().text = $"{_stat.Gold}";
     }
 }

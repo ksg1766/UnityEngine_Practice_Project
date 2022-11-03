@@ -11,7 +11,10 @@ public class PlayerStat : Stat
     protected int _gold;
     [SerializeField]
     public float _totalExp;
-    
+
+    //public Dictionary<string, int> Inven_Items = new Dictionary<string, int>(20);
+    public Inventory PlayerInventory;
+
     public string Name;
     static string ID;
     public float TotalExp { get { return _totalExp; } set { _totalExp = value; } }
@@ -54,6 +57,7 @@ public class PlayerStat : Stat
 
     private void Start()
     {
+        PlayerInventory = new Inventory();
         ID = PlayerPrefs.GetString("ID");
         UnityGoogleSheet.LoadFromGoogle<string, Userinfo.User>((list, map) =>
         {

@@ -234,6 +234,48 @@ public class PlayerController : BaseController
         }
     }
 
+    void OnItemEvent1()
+    {
+        if (_stat.PlayerInventory.Inven_Items.ContainsKey("SmallPotion") && _stat.PlayerInventory.Inven_Items["SmallPotion"] > 0)
+        {
+            _stat.Hp += 3 * _stat.MaxHp / 10;
+            if (_stat.Hp > _stat.MaxHp)
+                _stat.Hp = _stat.MaxHp;
+            --_stat.PlayerInventory.Inven_Items["SmallPotion"];
+            _stat.PlayerInventory.ShowItem();
+        }
+        else
+            Debug.Log("I don't have any Small Potion.");
+    }
+
+    void OnItemEvent2()
+    {
+        if (_stat.PlayerInventory.Inven_Items.ContainsKey("MediumPotion") && _stat.PlayerInventory.Inven_Items["MediumPotion"] > 0)
+        {
+            _stat.Hp += 45 * _stat.MaxHp / 100;
+            if (_stat.Hp > _stat.MaxHp)
+                _stat.Hp = _stat.MaxHp;
+            --_stat.PlayerInventory.Inven_Items["MediumPotion"];
+            _stat.PlayerInventory.ShowItem();
+        }
+        else
+            Debug.Log("I don't have any Medium Potion.");
+    }
+
+    void OnItemEvent3()
+    {
+        if (_stat.PlayerInventory.Inven_Items.ContainsKey("LargePotion") && _stat.PlayerInventory.Inven_Items["LargePotion"] > 0)
+        {
+            _stat.Hp += 6 * _stat.MaxHp / 10;
+            if (_stat.Hp > _stat.MaxHp)
+                _stat.Hp = _stat.MaxHp;
+            --_stat.PlayerInventory.Inven_Items["LargePotion"];
+            _stat.PlayerInventory.ShowItem();
+        }
+        else
+            Debug.Log("I don't have any Large Potion.");
+    }
+
     void OnMouseEvent(Define.MouseEvent evt)
     {
         switch (State)
@@ -317,10 +359,23 @@ public class PlayerController : BaseController
         {
             case Define.KeyboardEvent.Key_G:
                 {
-                    Interaction();
+                    if (nearObject == null)
+                        break;
+                    else if (nearObject.CompareTag("PotionShop") || nearObject.CompareTag("WeaponShop"))
+                        Interaction();
+                    
                 }
                 break;
 
+            case Define.KeyboardEvent.Key_I:
+                {
+                    if(GameObject.Find("Inventory") == null)
+                        _stat.PlayerInventory.InvenOn();
+                    else if(GameObject.Find("Inventory") != null)
+                        _stat.PlayerInventory.InvenOff();
+                }
+                break;
+            
             case Define.KeyboardEvent.Key_ESC:
                 {
                     if (nearObject.CompareTag("PotionShop"))
@@ -336,9 +391,28 @@ public class PlayerController : BaseController
                     }
                 }
                 break;
+
             case Define.KeyboardEvent.Key_W:
                 {
                     OnSkillEvent2();
+                }
+                break;
+            case Define.KeyboardEvent.Key_1:
+                {
+                    OnItemEvent1();
+                    //_stat.PlayerInventory.ShowItem();
+                }
+                break;
+            case Define.KeyboardEvent.Key_2:
+                {
+                    OnItemEvent2();
+                    //_stat.PlayerInventory.ShowItem();
+                }
+                break;
+            case Define.KeyboardEvent.Key_3:
+                {
+                    OnItemEvent3();
+                    //_stat.PlayerInventory.ShowItem();
                 }
                 break;
         }

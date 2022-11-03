@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3681989309559426691}
   - component: {fileID: 3402051450682675291}
   - component: {fileID: 7759067464254675901}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: 70}
+  m_AnchoredPosition: {x: 510, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3402051450682675291
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8465436421076237462}
   - component: {fileID: 1384504615031949553}
   - component: {fileID: 1624721471114047480}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectPickAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4652480161512646090}
   - component: {fileID: 3644914074315258725}
   - component: {fileID: 3092968290275998277}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_SteelAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 2370588396187112609}
   - component: {fileID: 2911423440349664337}
   - component: {fileID: 1241037840997145135}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PriceSteelAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 276697860784110899}
   - component: {fileID: 5230191631613448227}
   - component: {fileID: 3455850242978414646}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 4806373390369603851}
   - component: {fileID: 5430215873627588260}
   - component: {fileID: 5178332707550936290}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectRecurveBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 5636944849710401656}
   - component: {fileID: 6262876702144464360}
   - component: {fileID: 3627661345590096893}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 8437320187675584426}
   - component: {fileID: 389107259514424921}
   - component: {fileID: 6929754452192856749}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 6252863360118493845}
   - component: {fileID: 2480377756276234244}
   - component: {fileID: 2023703423171585319}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: weaponshop_selected3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 1310740232394127662}
   - component: {fileID: 4705905964128088049}
   - component: {fileID: 2074036504278926698}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405, y: -230}
+  m_AnchoredPosition: {x: 675, y: -230}
   m_SizeDelta: {x: 210, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1310740232394127662
@@ -939,7 +939,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4705905964128088049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6431624845053728085, guid: a69fd02c2bbe1914b91a64a85042140b, type: 3}
+        m_TargetAssemblyTypeName: WeaponShop, Assembly-CSharp
+        m_MethodName: clickBuyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2757934854382328115
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327504137720414391}
   - component: {fileID: 8669846365960848847}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Weapon_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1022,7 @@ GameObject:
   - component: {fileID: 8910597141550158108}
   - component: {fileID: 6367022911030261865}
   - component: {fileID: 7207087037475625646}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -230}
+  m_AnchoredPosition: {x: 150, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8910597141550158108
@@ -1144,7 +1156,7 @@ GameObject:
   - component: {fileID: 1266770557751712625}
   - component: {fileID: 3462041420314373298}
   - component: {fileID: 1002102353238757720}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,7 +1236,7 @@ GameObject:
   - component: {fileID: 8777619480134861026}
   - component: {fileID: 3860196074117692912}
   - component: {fileID: 8923511675885900669}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,7 +1312,7 @@ GameObject:
   - component: {fileID: 366704467317318667}
   - component: {fileID: 79827656624965357}
   - component: {fileID: 3541266972588362360}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -275}
+  m_AnchoredPosition: {x: 405, y: -275}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &79827656624965357
@@ -1381,7 +1393,7 @@ GameObject:
   - component: {fileID: 3736916655925133113}
   - component: {fileID: 3229654790629047876}
   - component: {fileID: 8940904688493105277}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: weaponshop_selected1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1470,7 @@ GameObject:
   - component: {fileID: 8112781666416878473}
   - component: {fileID: 2633691447674700937}
   - component: {fileID: 2360463427977179875}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_SelectSteelAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1603,7 @@ GameObject:
   - component: {fileID: 2060539021135920490}
   - component: {fileID: 6105710197261325565}
   - component: {fileID: 7635661414563477920}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: weaponshop_selected2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1668,7 +1680,7 @@ GameObject:
   - component: {fileID: 7334296477277736412}
   - component: {fileID: 6535402916500293991}
   - component: {fileID: 333136927002894683}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: -230}
+  m_AnchoredPosition: {x: -10, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7334296477277736412
@@ -1802,7 +1814,7 @@ GameObject:
   - component: {fileID: 1969687273788909}
   - component: {fileID: 6954671493811064481}
   - component: {fileID: 8786133275872904644}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1890,7 @@ GameObject:
   - component: {fileID: 7935099145918980717}
   - component: {fileID: 8616012283807798172}
   - component: {fileID: 4824445588433618664}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1954,7 +1966,7 @@ GameObject:
   - component: {fileID: 3210417132147586465}
   - component: {fileID: 7575553791602863517}
   - component: {fileID: 4021139471114958043}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MyGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1979,7 +1991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -175}
+  m_AnchoredPosition: {x: 405, y: -175}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7575553791602863517
@@ -2035,7 +2047,7 @@ GameObject:
   - component: {fileID: 2315448703641061701}
   - component: {fileID: 5993185962851234430}
   - component: {fileID: 7215239415691127367}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2062,7 +2074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -240, y: 70}
+  m_AnchoredPosition: {x: 30, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5993185962851234430
@@ -2114,7 +2126,7 @@ GameObject:
   - component: {fileID: 7652408378458458762}
   - component: {fileID: 5737265451822955414}
   - component: {fileID: 1973900836511325444}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PickAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,7 +2208,7 @@ GameObject:
   - component: {fileID: 3613056646381987979}
   - component: {fileID: 3032163655260514563}
   - component: {fileID: 470047183508552357}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2272,7 +2284,7 @@ GameObject:
   - component: {fileID: 2198882945757395398}
   - component: {fileID: 9132350481790489745}
   - component: {fileID: 1183927978200317145}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PricePickAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2365,7 @@ GameObject:
   - component: {fileID: 801821586499503188}
   - component: {fileID: 988613242153771138}
   - component: {fileID: 7022550376896222240}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Item2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2380,7 +2392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: 270, y: 70}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &988613242153771138
@@ -2432,7 +2444,7 @@ GameObject:
   - component: {fileID: 355348919795259421}
   - component: {fileID: 6336855738735525560}
   - component: {fileID: 186244270897914416}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2509,7 +2521,7 @@ GameObject:
   - component: {fileID: 1939958840092204683}
   - component: {fileID: 9050131575352432103}
   - component: {fileID: 7541767952782110858}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Selected Item 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2535,7 +2547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -440, y: -230}
+  m_AnchoredPosition: {x: -170, y: -230}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1939958840092204683
@@ -2643,7 +2655,7 @@ GameObject:
   - component: {fileID: 6256451303226673421}
   - component: {fileID: 2134530364709951268}
   - component: {fileID: 7704662343932924679}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2719,7 +2731,7 @@ GameObject:
   - component: {fileID: 3970156485713267910}
   - component: {fileID: 2367782011835698771}
   - component: {fileID: 4136283141001749742}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_PriceRecurveBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2800,7 +2812,7 @@ GameObject:
   - component: {fileID: 8513006977318427025}
   - component: {fileID: 735684963596068044}
   - component: {fileID: 5582432638441447623}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Weapon_Shop_Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2824,7 +2836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 270, y: 0}
   m_SizeDelta: {x: 1200, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &735684963596068044
@@ -2876,7 +2888,7 @@ GameObject:
   - component: {fileID: 4395869269246664434}
   - component: {fileID: 6481332417359015949}
   - component: {fileID: 5866693021265089547}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2957,7 +2969,7 @@ GameObject:
   - component: {fileID: 6948198490740970408}
   - component: {fileID: 4889536792287067651}
   - component: {fileID: 1303051309457149464}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2982,7 +2994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 549, y: 309}
+  m_AnchoredPosition: {x: 819, y: 309}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6948198490740970408
@@ -3090,7 +3102,7 @@ GameObject:
   - component: {fileID: 6684899099142953108}
   - component: {fileID: 5779041864902531960}
   - component: {fileID: 7770916438304000130}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3166,7 +3178,7 @@ GameObject:
   - component: {fileID: 8736854155826083520}
   - component: {fileID: 3266164280493703136}
   - component: {fileID: 2351438496047683866}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Text_RecurveBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3248,7 +3260,7 @@ GameObject:
   - component: {fileID: 2840366154612154427}
   - component: {fileID: 4180332275700893979}
   - component: {fileID: 6120977683741324692}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3273,7 +3285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -225}
+  m_AnchoredPosition: {x: 405, y: -225}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4180332275700893979
@@ -3329,7 +3341,7 @@ GameObject:
   - component: {fileID: 8902111715552243226}
   - component: {fileID: 8971725760933530467}
   - component: {fileID: 2674991245171125304}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3405,7 +3417,7 @@ GameObject:
   - component: {fileID: 2378945140879724232}
   - component: {fileID: 9150393571429705809}
   - component: {fileID: 5772190189922125280}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BackBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3481,7 +3493,7 @@ GameObject:
   - component: {fileID: 3595316808443423372}
   - component: {fileID: 7319040496422813074}
   - component: {fileID: 2445635661112354461}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: number_of_selected1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
